@@ -1,7 +1,7 @@
 ---
 title: Satz von Kleene
 date: 2025-05-08 13:03
-tags: 
+tags: satz 
 ---
 
 ----
