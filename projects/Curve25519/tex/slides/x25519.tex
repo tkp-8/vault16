@@ -1,0 +1,17 @@
+\begin{frame}{X25519}
+
+    \begin{definitionblock}{X25519}\\
+        \vspace{-2em}
+        \begin{align*}
+            \mathcal{K}_{pr} &= \{0,8,16,24,\dots,248\} \times \{0,1,\dots,255\}^{30} \times \{64,65,66,\dots,127\} \\
+            \mathcal{K}_{pub} &= \{0,1,\dots,255\}^{32}
+        \end{align*}
+        \vspace{-2em}
+        \[X25519: \mathcal{K}_{pr} \times \mathcal{K}_{pub} \longrightarrow \mathcal{K}_{pub}\]
+        \[(n,q)\longmapsto X([n]Q)\text{ mit $X(Q)=q$}\]
+    \end{definitionblock}
+    \begin{center}
+        \includegraphics[width=10cm]{tex/img/d-h.png}
+    \end{center}
+        
+\end{frame}

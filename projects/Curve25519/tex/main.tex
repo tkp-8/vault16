@@ -1,0 +1,42 @@
+\documentclass[aspectratio=169]{beamer}
+\usepackage{caption}
+
+\captionsetup[algorithm]{labelformat=empty}
+\setbeamertemplate{title page}[default][left] % left-align title page (commend out for centered title page)
+\beamertemplatenavigationsymbolsempty % remove navigation symbols
+
+\input{preamble}
+
+\title{Curve25519}
+\subtitle{Inwiefern tragen die mathematischen \\ Eigenschaften von Curve25519 \\ zu ihrer Sicherheit und Effizienz bei?}
+\author{Tom Pilgram}
+\institute{April 2025}
+\email{}
+\date{}
+
+\begin{document}
+
+\begin{frame}
+    \maketitle
+\end{frame}
+
+\include{slides/gruppenstruktur}
+\include{slides/x25519}
+%\include{slides/inhaltsverzeichnis}
+\include{slides/montgomery_curve}
+\include{slides/p^2}
+\include{slides/montgomery_ladder1}
+\include{slides/sca}
+\include{slides/montgomery_ladder2}
+\include{slides/f_p^2}
+\include{slides/k_pub}
+\include{slides/25519}
+\include{slides/x(P)}
+\include{slides/ssca}
+\include{slides/k_pr}
+
+\include{slides/486662}
+
+\include{slides/quellen}
+
+\end{document}

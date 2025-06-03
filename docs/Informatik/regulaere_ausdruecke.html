@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Regulaere Ausdruecke</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+  <link rel="stylesheet" href="style.css" />
+  <script defer=""
+  src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <link rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css" />
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">Regulaere Ausdruecke</h1>
+<p class="date">2025-05-07 05:47</p>
+<div class="tags">Tags: </div>
+</header>
+<hr />
+<h3 id="definition">Definition</h3>
+<h5 id="regulaerer-ausdruck-ra">Regulaerer Ausdruck (RA)</h5>
+<p>Fuer ein <a href="alphabet">Alphabet</a> <span
+class="math inline">\Sigma</span> bezeichnen wir <a
+href="woerter.html">Woerter</a> ueber <span class="math inline">\Sigma
+\cup \{(,),*,+,\cdot,\empty,\varepsilon\}</span>, die nach folgenden
+Regeln gebildet wurden, als regulaere Ausdruecke:</p>
+<ul>
+<li><span class="math inline">\empty,\varepsilon</span> sind regulaere
+Ausdruecke</li>
+<li>fuer jedes <span class="math inline">a \in \Sigma</span> ist <span
+class="math inline">a</span> ein regulaerer Ausdruck</li>
+<li>wenn <span class="math inline">S</span> und <span
+class="math inline">T</span> regulaere Ausdruecke sind, dann auch <span
+class="math inline">(S+T),(S\cdot T)</span> und <span
+class="math inline">(S)^{*}</span></li>
+</ul>
+<h5 id="sprache-eines-ra">Sprache eines RA</h5>
+<p>Sei <span class="math inline">R</span> ein RA, dann bezeichnen wir
+dessen Sprache mit <span class="math inline">L(R)</span>. Die Sprache
+<span class="math inline">L(R)</span> definiert sich induktiv wie folg
+(<span class="math inline">S</span> und <span
+class="math inline">T</span> sind andere RAs)</p>
+<ul>
+<li><span class="math inline">R=\empty\implies L(R)=\empty</span></li>
+<li><span class="math inline">R=a, \ a\in \Sigma \cup \{\varepsilon\}
+\implies L(R)=\{a\}</span></li>
+<li><span class="math inline">R=(S+T)\implies L(R)=L(S)\cup
+L(T)</span></li>
+<li><span class="math inline">R=(S\cdot T)\implies L(R)=L(S)\circ
+L(T)</span></li>
+<li><span class="math inline">R=(S)^{*} \implies L(R) =
+L(S)^{*}</span></li>
+</ul>
+<hr />
+<h3 id="konzept">Konzept</h3>
+<ul>
+<li>Beschreibung der Struktur der Woerter</li>
+</ul>
+<hr />
+<h3 id="beispiele">Beispiele</h3>
+<p>1.) <span class="math inline">R_{1} =
+(\texttt{0}+\texttt{1})^{*}\texttt{0101}(\texttt{0}+\texttt{1})^{*}</span></p>
+<ul>
+<li><span
+class="math inline">\Sigma=\{\texttt{0},\texttt{1}\}</span></li>
+<li><strong>Praefix:</strong> <span
+class="math inline">(\texttt{0}+\texttt{1})^{*}</span>, also ein wort
+aus <span class="math inline">\Sigma ^{*}</span></li>
+<li><strong>Teilwort:</strong> <span
+class="math inline">\texttt{0101}</span></li>
+<li><strong>Suffix:</strong> <span
+class="math inline">(\texttt{0}+\texttt{1})^{*}</span>, also ein wort
+aus <span class="math inline">\Sigma ^{*}</span> <span
+class="math display">
+L(R_{1})=\{w\in \Sigma ^{*}\mid w \text{ enthaelt} \texttt{ 0101 }
+\text{als Teilwort}\}  
+</span></li>
+</ul>
+<p>2.) <span
+class="math inline">R_2=\empty+(\texttt{b}^{*}\texttt{ab}^{*}\texttt{ab}^{*})^{*}</span></p>
+<ul>
+<li><span class="math inline">\Sigma =
+\{\texttt{a},\texttt{b}\}</span></li>
+<li><span
+class="math inline">(\texttt{b}^{*}\texttt{ab}^{*}\texttt{ab}^{*})^{*}</span>:
+genau zwei <span class="math inline">\texttt{a}</span>s und beliebig
+viele <span class="math inline">\texttt{b}</span>s davor und dahinter
+<span class="math display">
+\begin{align*}
+L(R_{3}) &amp;= L(\empty) \cup \{w\in \Sigma ^{*} \mid w \text{ enthaelt
+gerade Anzahl an } \texttt{a}s\}\\
+&amp;= \{w\in \Sigma ^{*} \mid w \text{ enthaelt gerade Anzahl an }
+\texttt{a}s\}  
+\end{align*}
+</span></li>
+</ul>
+<hr />
+<h3 id="satz-1">Satz 1</h3>
+<h5 id="sei-r-ein-regulaerer-ausdruck-dann-ist-lr-regulaer">Sei <span
+class="math inline">R</span> ein regulaerer Ausdruck, dann ist <span
+class="math inline">L(R)</span> regulaer</h5>
+<p><strong>Beweis.</strong> <a href="satz_von_kleene.html">Satz von
+Kleene</a></p>
+<hr />
+<hr />
+<p><strong>Backlinks:</strong> - <a
+href="regulaere_sprachen.html">Regulaere Sprachen</a></p>
+<script>
+renderMathInElement(
+    document.body,
+    {
+        delimiters: [
+            {left: "$$", right: "$$", display: true},
+            {left: "\\[", right: "\\]", display: true},
+            {left: "$", right: "$", display: false},
+            {left: "\\(", right: "\\)", display: false},
+            {left: "\\begin{equation}", right: "\\end{equation}", display: true},
+            {left: "\\begin{align}", right: "\\end{align}", display: true},
+            {left: "\\begin{alignat}", right: "\\end{alignat}", display: true},
+            {left: "\\begin{gather}", right: "\\end{gather}", display: true},
+            {left: "\\begin{CD}", right: "\\end{CD}", display: true},
+        ]
+    }
+);
+</script>
+</body>
+</html>

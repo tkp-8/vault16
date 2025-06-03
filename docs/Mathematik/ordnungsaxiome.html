@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Ordnungsaxiome</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+  <link rel="stylesheet" href="style.css" />
+  <script defer=""
+  src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <link rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css" />
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">Ordnungsaxiome</h1>
+<p class="date">2025-06-02 09:30</p>
+<div class="tags">Tags: <span class="tag">axiome</span> </div>
+</header>
+<hr />
+<h3 id="axiome">Axiome</h3>
+<p>(A1) <strong>Trichotomiegesetx:</strong> Fuer je zwei Zahlen <span
+class="math inline">a,b</span> gilt genau eine der drei Beziehungen:
+<span class="math display">
+  a&lt;b \text{ oder } a=b \text{ oder } a&gt;b
+</span> (A2) <strong>Transitivitaetsgesetz:</strong> Ist <span
+class="math inline">a&lt;b</span> und <span
+class="math inline">b&lt;c</span>, so folgt <span
+class="math inline">a&lt;c</span><br />
+(A3) <strong>Monotoniegesetz:</strong> Ist <span
+class="math inline">a&lt;b</span>, so gilt <span
+class="math inline">a+c&lt;b+c</span> fuer alle <span
+class="math inline">c</span>, und es gilt <span
+class="math inline">ac&lt;bc</span> fuer alle <span
+class="math inline">c&gt;0</span></p>
+<hr />
+<h3 id="folgerungen">Folgerungen</h3>
+<h5 id="proposition-1">Proposition 1</h5>
+<p>Fuer alle reellen Zahlen <span class="math inline">a</span> und <span
+class="math inline">b</span> gilt:</p>
+<ol type="1">
+<li><span class="math inline">a&lt;b\Leftrightarrow b-a&gt;0</span></li>
+<li><span class="math inline">a&lt;0\Leftrightarrow -a&gt;0</span></li>
+<li><span class="math inline">a&gt;0\Leftrightarrow -a&lt;0</span></li>
+<li><span class="math inline">a&lt;b \Leftrightarrow
+-b&lt;-a</span></li>
+</ol>
+<p><strong>Beweis:</strong> 1. Aus <span
+class="math inline">a&lt;b</span> folgt mit (A3) <span
+class="math inline">0=a+(-a)&lt;b+(-a)=b-a</span>, also <span
+class="math inline">b-a&gt;0</span>. Gilt umgekehrt <span
+class="math inline">b-a&gt;0</span>, so folgt <span
+class="math inline">b-a+a&gt;0+a</span>, also <span
+class="math inline">b&gt;a</span> 2. Die Aussage folgt aus 1. mit <span
+class="math inline">b=0</span> 3. Die Aussage folgt aus 2., wenn wir
+<span class="math inline">a</span> durch <span
+class="math inline">-a</span> ersetzen und beachten, dass <span
+class="math inline">-(-a)=a</span> ist 4. Es gilt $$ <span
+class="math display">\begin{align*}
+    
+    a&lt;b&amp;\Leftrightarrow b-a&gt;0 &amp;\text{mit }1 \\
+    &amp;\Leftrightarrow -a-(-b)&gt;0 &amp; \text{da } -(-b)=b \\
+    &amp;\Leftrightarrow -b&lt;-a &amp; \text{mit } 1
+   \end{align*}</span> $$</p>
+<h5 id="proposition-2">Proposition 2</h5>
+<p>Sei <span class="math inline">b\neq 0</span>. Dann gilt:</p>
+<ol type="1">
+<li><span class="math inline">\frac{1}{b}&gt;0\Leftrightarrow
+b&gt;0</span></li>
+<li><span class="math inline">\frac{a}{b}&gt;0\Leftrightarrow \text{
+Zaehler und Nenner sind beide positiv oder beide negativ}</span></li>
+</ol>
+<p><strong>Beweis:</strong></p>
+<ol type="1">
+<li>Es ist <span class="math inline">b\cdot \frac{1}{b}=1&gt;0</span>.
+Da <span class="math inline">1</span> positiv ist, ist das Produkt genau
+dann positiv, wenn beide Faktoren positiv sind (da <span
+class="math inline">b &gt;0</span>)</li>
+<li>Genau dann ist <span class="math inline">\frac{a}{b}=a\cdot
+\frac{1}{b}</span> positiv, wenn <span class="math inline">a</span> und
+<span class="math inline">\frac{1}{b}</span> positiv sind oder <span
+class="math inline">a</span> und <span
+class="math inline">\frac{1}{b}</span> negativ sind</li>
+</ol>
+<h5 id="proposition-3-abschaetzung-von-bruechen">Proposition 3
+(Abschaetzung von Bruechen)</h5>
+<ol type="1">
+<li>Ist <span class="math inline">p_{1}&lt;p_{2}</span> und <span
+class="math inline">q&gt;0</span>, so gilt <span
+class="math inline">\frac{p_{1}}{q}&lt;\frac{p_{2}}{q}</span></li>
+<li>Ist <span class="math inline">0&lt;q_{1}&lt;q_{2}</span> und ist
+<span class="math inline">p&gt;0</span>, so gilt <span
+class="math inline">\frac{p}{q_{2}}&lt;\frac{p}{q_{1}}</span></li>
+</ol>
+<p><strong>Beweis:</strong></p>
+<ol type="1">
+<li>Mit Proposition 2 ist <span
+class="math inline">\frac{1}{q}&gt;0</span>. Die Behauptung ergibt sich
+aus (A3)</li>
+<li>Es ist <span class="math inline">\frac{p}{q_{1}q_{2}}&gt;0</span>.
+Wir multiplizieren die Ungleichung <span
+class="math inline">q_{1}&lt;q_{2}</span> mit <span
+class="math inline">\frac{p}{q_{1}q_{2}}</span>, und mit (A3) folgt die
+Behauptung</li>
+</ol>
+<h5 id="satz-1-bernoullische-ungleichung">Satz 1 (Bernoulli’sche
+Ungleichung)</h5>
+<p><a href="bernoullische_ungleichung.html">Bernoulli’sche
+Ungleichung</a></p>
+<hr />
+<hr />
+<p><strong>Backlinks:</strong> - <a
+href="/📁Analysis_Grundlagen.html">📂Analysis Grundlagen</a></p>
+<script>
+renderMathInElement(
+    document.body,
+    {
+        delimiters: [
+            {left: "$$", right: "$$", display: true},
+            {left: "\\[", right: "\\]", display: true},
+            {left: "$", right: "$", display: false},
+            {left: "\\(", right: "\\)", display: false},
+            {left: "\\begin{equation}", right: "\\end{equation}", display: true},
+            {left: "\\begin{align}", right: "\\end{align}", display: true},
+            {left: "\\begin{alignat}", right: "\\end{alignat}", display: true},
+            {left: "\\begin{gather}", right: "\\end{gather}", display: true},
+            {left: "\\begin{CD}", right: "\\end{CD}", display: true},
+        ]
+    }
+);
+</script>
+</body>
+</html>

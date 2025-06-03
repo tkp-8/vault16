@@ -1,0 +1,20 @@
+\begin{frame}{SSCA}
+    \begin{definitionblock}{Small subgroup confinement attack}
+        \\Angriff, der kleine Untergruppen nutzt, um Teile des privaten Schlüssels zu enthüllen
+        
+     \end{definitionblock}
+     \vspace{1em}
+     \textit{Beispiele}:
+        \begin{itemize}
+            \item Pohlig-Hellman-Algorithmus: Nur wenn $\#\langle P \rangle$ eine zusammengesetzte Zahl ist
+            \item Ungültiger Generator: Bewusste Auswahl eines Generator aus einer kleinen Untergruppe
+                           
+        \end{itemize}
+            \begin{align*}
+                 \text{Öffentlicher Schlüssel von B}&:H\text{, Generator einer kleinen Untergruppe}\\
+                \text{Gemeinsamer Schlüssel von A}&:aH\text{, welcher ebenfalls in der Untergruppe liegt}
+            \end{align*}
+            \[a\mod{\#\langle H\rangle}\]
+
+   
+\end{frame}

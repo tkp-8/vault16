@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Potenzautomat</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+  <link rel="stylesheet" href="style.css" />
+  <script defer=""
+  src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <link rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css" />
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">Potenzautomat</h1>
+<p class="date">2025-05-07 07:44</p>
+<div class="tags">Tags: </div>
+</header>
+<hr />
+<h3 id="definition">Definition</h3>
+<p>Sei <span class="math inline">N=(Q,\Sigma,\delta,q_{0},F)</span> ein
+<a href="nea.html">NEA</a>, dann ist der Potenzautomat zu <span
+class="math inline">N</span> ein <a href="dea.html">DEA</a> <span
+class="math inline">M=(Q_P,\Sigma_P,\delta_P,q_p,F_P)</span> mit</p>
+<blockquote>
+<ul>
+<li><span class="math inline">Q_P\coloneqq \mathcal{P}(Q)</span></li>
+<li><span class="math inline">\delta_P</span> gegeben durch <span
+class="math inline">\delta_P(P,x)\coloneqq
+E(\bigcup\nolimits_{p \in  P}\delta(p,x))</span></li>
+<li><span class="math inline">q_P\coloneqq E(q_{0})</span></li>
+<li><span class="math inline">F_P = \{P\subseteq Q \mid \exists p \in
+P:p \in F\}</span></li>
+</ul>
+</blockquote>
+<hr />
+<h3 id="bemerkung">Bemerkung</h3>
+<ul>
+<li><span class="math inline">|Q_P|=2^{|Q|}</span> Zustaende</li>
+<li>Zustand <span class="math inline">\empty</span> moeglich, da <span
+class="math inline">\empty \in \mathcal{P}(Q)</span></li>
+</ul>
+<hr />
+<h3 id="lemma-1">Lemma 1</h3>
+<h5
+id="sei-nqsigmadeltaq_0f-ein-nea-mit-potenzautomat-m_pq_psigmadelta_pq_pf_p.-dann-gilt-dass-fuer-alle-psubseteq-q-und-alle-win-sigma">Sei
+<span class="math inline">N=(Q,\Sigma,\delta,q_{0},F)</span> ein NEA mit
+Potenzautomat <span
+class="math inline">M_P=(Q_P,\Sigma,\delta_P,q_P,F_P)</span>. Dann gilt,
+dass fuer alle <span class="math inline">P\subseteq Q</span> und alle
+<span class="math inline">w\in \Sigma ^{*}</span></h5>
+<p><span class="math display">
+  \delta_P^{*}(E(P),w)=\delta ^{*}(P,w)   
+</span> <strong>Beweis.</strong> Verfahren: Vollstaendige Induktion
+ueber <span class="math inline">|w|</span><br />
+Induktionsanfang: <span
+class="math inline">\delta_P^{0}(E(P),\varepsilon)=E(P)=\delta
+^{0}(P,\varepsilon)</span><br />
+Induktionsannahme: Wir nehmen an, dass <span
+class="math inline">\delta_P^{*}(E(P),u)=\delta ^{*}(P,u)</span> gilt
+(fuer alle Woerter der Laenge <span
+class="math inline">k=|u|</span>)<br />
+Induktionsschritt: Es folgt fuer alle <span class="math inline">x\in
+\Sigma</span>:</p>
+<p><span class="math display">
+\begin{align*}
+  \delta_P^{k+1}(E(P),ux) &amp;\ = \delta_P(\delta_P^{k}(E(P),u),x ) \\
+&amp;\stackrel{I.A.}= \delta_P(\delta ^{k}(P,u),x) \quad\\
+&amp;\stackrel{def}= E(\bigcup\nolimits_{r \in  \delta
+^{k}(P,u)}\delta(r,x))\\
+&amp;\stackrel{def}=\delta ^{k+1}(P,ux)
+\end{align*}
+</span></p>
+<hr />
+<h3 id="satz-1">Satz 1</h3>
+<h5 id="sei-n-ein-nea-und-m_p-dessen-potenzautomat-dann-gilt">Sei <span
+class="math inline">N</span> ein NEA und <span
+class="math inline">M_P</span> dessen Potenzautomat, dann gilt</h5>
+<p><span class="math display">
+  L(N) = L(M_P)
+</span> <strong>Beweis.</strong> Sei <span
+class="math inline">N=(Q,\Sigma,\delta,q_{0},F)</span> und <span
+class="math inline">M_P=(Q_P,\Sigma,\delta_P,q_P,F_P)</span> <span
+class="math display">
+\begin{align*}
+  N \text{ akzeptiert } w &amp;\Leftrightarrow \delta ^{*}(\{q_{0}\},w)
+\cap F \neq \empty &amp;def  \\
+  &amp;\Leftrightarrow \delta_P^{*}(E(\{q_{0}\}),w)\cap F \neq
+\empty  &amp; Lemma \ 1\\
+  &amp;\Leftrightarrow\delta_P^{*}(q_P,w)\cap F \neq \empty &amp; def \
+q_P \\
+  &amp;\Leftrightarrow \delta_P^{*}(q_P,w)\in F_P &amp; def \ F_P\\
+  &amp;\Leftrightarrow M_P \text{ akzeptiert } w &amp; def
+\end{align*}
+</span></p>
+<hr />
+<hr />
+<p><strong>Backlinks:</strong> - <a
+href="/📁Formale_Sprachen%linkAutomaten.html">📂Formale Sprachen
+Potenzautomat Automaten</a></p>
+<script>
+renderMathInElement(
+    document.body,
+    {
+        delimiters: [
+            {left: "$$", right: "$$", display: true},
+            {left: "\\[", right: "\\]", display: true},
+            {left: "$", right: "$", display: false},
+            {left: "\\(", right: "\\)", display: false},
+            {left: "\\begin{equation}", right: "\\end{equation}", display: true},
+            {left: "\\begin{align}", right: "\\end{align}", display: true},
+            {left: "\\begin{alignat}", right: "\\end{alignat}", display: true},
+            {left: "\\begin{gather}", right: "\\end{gather}", display: true},
+            {left: "\\begin{CD}", right: "\\end{CD}", display: true},
+        ]
+    }
+);
+</script>
+</body>
+</html>

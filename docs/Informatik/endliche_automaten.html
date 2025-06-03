@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Endliche Automatenend</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+  <link rel="stylesheet" href="style.css" />
+  <script defer=""
+  src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <link rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css" />
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">Endliche Automatenend</h1>
+<p class="date">2025-05-06 08:36</p>
+<div class="tags">Tags: </div>
+</header>
+<hr />
+<h3 id="definition">Definition</h3>
+<h5 id="endlicher-automat">Endlicher Automat</h5>
+<p>Modell zur Darstellung eines
+<strong>Zustandsueberganssystems</strong> mit begrenztem Speicher</p>
+<h5 id="sprache-des-automaten">Sprache des Automaten</h5>
+<p><span class="math inline">L(M)</span>: Menge aller <a
+href="woerter.html">Woerter</a>, die der Automat <span
+class="math inline">M</span> akzeptiert<br />
+<strong><a href="regulaere_sprachen">Regulaere Sprachen</a>:</strong> <a
+href="sprachen.html">Sprachen</a> fuer die es einen endlichen Automaten
+gibt</p>
+<h5 id="w-lauf"><span class="math inline">w</span>-Lauf</h5>
+<p>Wenn der Lauf sich auf die Eingabe <span class="math inline">w</span>
+bezieht<br />
+<strong>akzeptierender</strong> Lauf/<strong>verwerfender</strong>
+Lauf</p>
+<hr />
+<h3 id="konzept">Konzept</h3>
+<ul>
+<li>Beschreibung der Verarbeitung von Sprachen</li>
+<li>Schwerpunkt ist Erkennen korrekter Woerter</li>
+</ul>
+<hr />
+<h3 id="eigenschaften">Eigenschaften</h3>
+<ul>
+<li>Loesen des <strong>Wortproblems</strong> von bestimmten formalen
+Sprachen</li>
+<li><strong>Eingabe:</strong> <a href="woerter.html">Wort</a>,
+<strong>Ausgabe:</strong> Wahrheitswert, ob Eingabe ein Element der
+zugehoerigen Sprache</li>
+<li>EA <strong>akzeptiert</strong>/<strong>verwirft</strong> das
+Eingabewort</li>
+<li>Lesen des Wortes erfolgt nur <strong>zeichenweise</strong></li>
+<li>EA kann waehrend der Verarbeitung endlich viele
+<strong>Zustaende</strong> annehmen</li>
+<li><strong>Zustandsuebergang</strong> haengt vom aktuellen Zeichen der
+Eingabe ab (Ausnahme <span
+class="math inline">\varepsilon</span>-Uebergaenge)</li>
+<li><strong>Endzustaende</strong> bestimmen den Ausgabewert</li>
+</ul>
+<hr />
+<h3 id="berechnungsmodelle">Berechnungsmodelle</h3>
+<p><a href="dea.html">DEA</a>: Immer <strong>eindeutiger</strong>
+Folgezustand</p>
+<p><a href="nea.html">NEA</a>: <strong>Mehrere</strong> oder
+<strong>keine</strong> Folgezustaende moeglich</p>
+<p><a href="potenzautomat.html">Potenzautomat</a>: Konstruiert aus einem
+<strong>NEA</strong> ein <strong>DEA</strong></p>
+<hr />
+<h3 id="zustandsdiagramm">Zustandsdiagramm</h3>
+<p><img src="img/ea_1.png" /></p>
+<hr />
+<hr />
+<p><strong>Backlinks:</strong> - <a
+href="📁Formale_Sprachen&amp;Automaten.html">📂Formale_Sprachen&amp;Automaten</a></p>
+<script>
+renderMathInElement(
+    document.body,
+    {
+        delimiters: [
+            {left: "$$", right: "$$", display: true},
+            {left: "\\[", right: "\\]", display: true},
+            {left: "$", right: "$", display: false},
+            {left: "\\(", right: "\\)", display: false},
+            {left: "\\begin{equation}", right: "\\end{equation}", display: true},
+            {left: "\\begin{align}", right: "\\end{align}", display: true},
+            {left: "\\begin{alignat}", right: "\\end{alignat}", display: true},
+            {left: "\\begin{gather}", right: "\\end{gather}", display: true},
+            {left: "\\begin{CD}", right: "\\end{CD}", display: true},
+        ]
+    }
+);
+</script>
+</body>
+</html>

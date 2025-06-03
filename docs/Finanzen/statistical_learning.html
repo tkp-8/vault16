@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Statistical_Learning</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+  <link rel="stylesheet" href="style.css" />
+  <script defer=""
+  src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <link rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css" />
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">Statistical_Learning</h1>
+<p class="date">2025-06-03 05:30</p>
+<div class="tags">Tags: </div>
+</header>
+<hr />
+<h3 id="definition">Definition</h3>
+<p><em>Statistical learning</em> ist the ability to extract regularities
+from the environment and learn from data</p>
+<p>In a quantitative sense, we attempt to model the behaviour of an
+<strong>outcome</strong> or <strong>response</strong> based on a set of
+<strong>predictors</strong> or <strong>features</strong> assuming a
+relationship between the two</p>
+<p>Let <span class="math inline">Y</span> be a response with <span
+class="math inline">p</span> different features <span
+class="math inline">x_{1},x_{2},\ldots ,x_p</span>. Let <span
+class="math inline">X</span> be a <span
+class="math inline">p</span>-dimensional vetor, representing the
+features. <span class="math inline">X=(x_{1},x_{2},\ldots ,x_p)</span>.
+The model of our relationship is given by <span class="math display">
+  Y=f(X)+\epsilon
+</span> Where <span class="math inline">f</span> is an unknown function
+of the predictors and <span class="math inline">\epsilon</span>
+represents an <strong>error</strong> or <strong>noise</strong> term</p>
+<hr />
+<h3 id="goal-of-statistical-learning">Goal of Statistical Learning</h3>
+<p><strong>Estimating</strong> the form of <span
+class="math inline">f</span> nased on the observed data and to
+<strong>evaluate</strong> how accurate those estimates are</p>
+<hr />
+<h3 id="prediction-and-inference">Prediction and Inference</h3>
+<p><em>Prediction</em> is concerned with predicting an estimate response
+<span class="math inline">\hat{Y}</span> based on a newly observed
+predictor <span class="math inline">X</span>. As long as the estimate
+responses are close to the true responses, the functional form of <span
+class="math inline">f</span> is unimportant. Instead, we use the
+estimate <span class="math inline">\hat{f}</span> of <span
+class="math inline">f</span>, of which the error is ideally reduced up
+to an irreducible extent <span class="math display">
+  \hat{Y}=\hat{f}(X)
+</span> <em>Inference</em> is concerned with the situation where there
+is a need to understand the relationship between <span
+class="math inline">X</span> and <span class="math inline">Y</span> and
+hence its <strong>exact form</strong> must be
+<strong>determined</strong>.</p>
+<hr />
+<h3 id="parametric-and-non-parametric-models">Parametric and
+Non-Parametric Models</h3>
+<p>In order to generate <span class="math inline">\hat{f}</span>, we
+often consider a data set of the form <span class="math display">
+  \{(X_{1},Y_{1}),(X_{2},Y_{2}),\ldots ,(X_N,Y_N)\}  
+</span> A data set of this form is known as <strong>training
+data</strong> since it will be used to train a particular statistical
+model that belongs to either of the following broad categories:</p>
+<h5 id="parametric-models">Parametric Models</h5>
+<ul>
+<li>Require the <strong>specification</strong> or
+<strong>assumption</strong> of the form of <span
+class="math inline">f</span></li>
+<li>linear / non-linear</li>
+</ul>
+<p><strong>Linear Model</strong><br />
+Reduces the problem to that of estimating a coefficient vector <span
+class="math inline">\beta=(\beta_{0},\beta_{1},\ldots ,\beta_p)</span>
+of length <span class="math inline">p+1</span>, where <span
+class="math inline">\beta_{0}</span> is the intercept hence <span
+class="math inline">p+1</span> <span class="math display">
+  Y\approx \hat{\beta}^{T}X=\beta_{0}+\beta_{1}x_{1}+\cdots+\beta_px_p
+\\
+(^T\texttt{for Transpose)}
+</span></p>
+<ul>
+<li>Can lead to poor estimates, due to its <strong>unflexible</strong>
+nature</li>
+<li>Chosing alternate forms for <span class="math inline">\hat{f}</span>
+increases flexibility, but can cause a situation known as
+<strong>overfitting</strong></li>
+</ul>
+<h5 id="non-parametric-models">Non-Parametric Models</h5>
+<ul>
+<li>Potential of fitting a wider range of possible forms for <span
+class="math inline">f</span></li>
+<li>Need of an extensive amount of data points</li>
+</ul>
+<hr />
+<h3 id="supervised-and-unsupervised-learning">Supervised and
+Unsupervised Learning</h3>
+<h5 id="supervised-model">Supervised Model</h5>
+<ul>
+<li>Requires for each <span class="math inline">X_j</span> an associated
+<span class="math inline">Y_j</span><br />
+</li>
+<li>Supervision occurs when the model for <span
+class="math inline">f</span> is <em>trained</em> or <em>fit</em> to this
+data</li>
+<li>e.g OLS algorithm to train a linear regression model</li>
+</ul>
+<h5 id="unsupervised-model">Unsupervised Model</h5>
+<ul>
+<li>No corresponding response <span class="math inline">Y_j</span> for
+any predictor <span class="math inline">X_j</span></li>
+<li>More Challenging but extremely powerful</li>
+</ul>
+<hr />
+<h3 id="techniques">Techniques</h3>
+<ul>
+<li><a href="regression.html">Regression</a></li>
+<li><a href="classification.html">Classification</a></li>
+<li><a href="time_series_models.html">Time_Series_Models</a></li>
+</ul>
+<hr />
+<hr />
+<p><strong>Backlinks:</strong> - <a
+href="/📁Quants101.html">📂Quants101</a></p>
+<script>
+renderMathInElement(
+    document.body,
+    {
+        delimiters: [
+            {left: "$$", right: "$$", display: true},
+            {left: "\\[", right: "\\]", display: true},
+            {left: "$", right: "$", display: false},
+            {left: "\\(", right: "\\)", display: false},
+            {left: "\\begin{equation}", right: "\\end{equation}", display: true},
+            {left: "\\begin{align}", right: "\\end{align}", display: true},
+            {left: "\\begin{alignat}", right: "\\end{alignat}", display: true},
+            {left: "\\begin{gather}", right: "\\end{gather}", display: true},
+            {left: "\\begin{CD}", right: "\\end{CD}", display: true},
+        ]
+    }
+);
+</script>
+</body>
+</html>

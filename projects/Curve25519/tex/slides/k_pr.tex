@@ -1,0 +1,42 @@
+
+\begin{frame}{$\mathcal{K}_{pr}$}
+    \begin{algorithm}[H]
+        \caption{\textbf{\texttt{CLAMP()}} – Anpassung des Skalars für X25519}
+        \label{alg:clamp}
+        
+        \textbf{Input:} $k \in \{0,1,\dots,255\}^{32}$ \hfill \texttt{// 32-Byte zufällig generierter Wert}\\
+        \textbf{Output:} Angepasster Skalar $k'$
+        
+        \begin{algorithmic}[1]  
+            \State \hspace{0.5cm} $\texttt{k{[}0{]}} \gets \texttt{k{[}0{]}} \land 248$ \hfill \texttt{// 248 = (11111000)$_\texttt{2}$}
+            \State \hspace{0.5cm} $\texttt{k{[}31{]}} \gets \texttt{k{[}31{]}} \land 127$ \hfill \texttt{// 127 = (01111111)$_\texttt{2}$}
+            \State \hspace{0.5cm} $\texttt{k{[}31{]}} \gets \texttt{k{[}31{]}} \lor 64$ \hfill \texttt{// \ 64 = (01000000)$_\texttt{2}$}
+            \State \hspace{0.5cm} $\texttt{k'} \gets \texttt{k}$
+            \State \hspace{0.5cm} $\textbf{return} \ \texttt{k'}$
+        \end{algorithmic}
+    \end{algorithm}
+\end{frame}
+
+\begin{frame}{$\mathcal{K}_{pr}$}
+    \begin{tabular}{c|c|c}
+       \texttt{1:} \;$\; \texttt{k[0]} \land \texttt{(11111000)$_2$ }$  & Niedrigstwertige 3 Bits $\gets 0$ & $8\mid \texttt{k}$\\
+       \texttt{2:} $\texttt{k[31]} \land \texttt{(01111111)$_2$ }$  & Das höchstwertige Bit $\gets 0$&$\texttt{k}\leq2^{255}-1$\\
+       \texttt{3:} $\texttt{k[31]} \lor \texttt{(01000000)$_2$ }$ & Das zweithöchstwertige Bit $\gets 1$&$\texttt{k}\geq2^{254}$
+       
+    \end{tabular}
+    \begin{align*}
+        \mathcal{K}_{pr}&= \{0,8,16,24,\cdots,248\} \times \{0,1,\cdots,255\}^{30} \times \{64,65,66,\cdots,127\} \\
+        &={\{\underline{n}:n\in 2^{254}+8\{0,1,\dots,2^{251}-1\}\}}
+    \end{align*}
+    \vspace{-1.5em}
+    \begin{algorithmblock}
+        \begin{itemize}
+            \item SSCA: $\texttt{k}\equiv0\mod{2^i}$ für $1\leq i\leq 3$
+            \item Vermeidung von kleinen Skalaren\\
+            \item Skalar zwischen $2^{251}$ und $2^{252}-1$($\approx\#\langle P\rangle$)\\(Verschiebung von 3 Bits durch Faktor 8) \rightarrow $2^{254}\leq \texttt{k} \leq 2^{255}-1$
+            \item SCA: Feste effektive Schlüssellänge von 255 Bits erzwingt konstante Iterationen 
+        \end{itemize}
+    \end{algorithmblock}
+    
+\end{frame}
+

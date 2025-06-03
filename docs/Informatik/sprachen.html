@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Sprachen</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+  <link rel="stylesheet" href="style.css" />
+  <script defer=""
+  src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <link rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css" />
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">Sprachen</h1>
+<p class="date">2025-05-06 05:01</p>
+<div class="tags">Tags: </div>
+</header>
+<hr />
+<h3 id="definition">Definition</h3>
+<h5 id="sprache">Sprache</h5>
+<p>Eine Menge von <a href="woerter.html">Woertern</a></p>
+<h5 id="komplement">Komplement</h5>
+<p>Komplement der Sprache <span class="math inline">L</span>:<br />
+Die Sprache <span class="math inline">\Sigma ^{*}\setminus L</span></p>
+<h5 id="abschlusseigenschaften">Abschlusseigenschaften</h5>
+<p>Eine Sprachklasse <span class="math inline">\mathcal{L}</span> ist
+<strong>abgeschlossen unter der Operation</strong> <span
+class="math inline">\oplus</span>, falls fuer alle <span
+class="math inline">L_{1},L_{2}\in \mathcal{L}</span> gilt, dass <span
+class="math display">L_{1}\oplus L_{2} \in \mathcal{L}</span></p>
+<hr />
+<h3 id="notation">Notation</h3>
+<p><strong>Konkatenation</strong> <span
+class="math inline">\circ</span><br />
+Seien <span class="math inline">L_{1},L_{2}</span> Sprachen aus dem
+selben <a href="alphabet.html">Alphabet</a> <span
+class="math inline">L_{1}\circ L_{2}\coloneqq \{uv\mid u\in L_{1} \
+\text{und} \ v\in L_{2}\}</span></p>
+<p><span class="math display">
+  L^{k}\coloneqq \{w_{1}\cdots w_k\mid \forall i\le k:w_i \in L\}   
+</span></p>
+<p><span class="math display">
+  L^{1}\coloneqq L,\quad L^{0}\coloneqq \{\varepsilon\}, \quad
+L^{*}\coloneqq
+  \bigcup_{k =  0}^{\infty}L^{k}, \quad L^{+} \coloneqq
+\bigcup_{k=1}^{\infty}L^{k}       
+</span></p>
+<p><strong>Komplement</strong><br />
+<span class="math inline">\overline{L}</span></p>
+<p><strong>Spiegelung</strong><br />
+<span class="math inline">\overleftarrow{L}\coloneqq
+\{\overleftarrow{w}\mid w\in L\}</span></p>
+<hr />
+<h3 id="klassifizierung">Klassifizierung</h3>
+<h5 id="chomsky-hierarchie">Chomsky-Hierarchie</h5>
+<ul>
+<li>rekursiv aufzaehlbar (Typ 0, <span
+class="math inline">\mathcal{L}_{RE}</span>)</li>
+<li>kontextsensitiv (Typ 1, <span
+class="math inline">\mathcal{L}_{ECS}</span>)</li>
+<li><a href="kontextfreie_sprachen.html">kontextfrei</a> (Typ 2, <span
+class="math inline">\mathcal{L}_{CF}</span>)</li>
+<li><a href="regulaere_sprachen.html">regulaer</a> (Typ 3, <span
+class="math inline">\mathcal{R}</span>)</li>
+</ul>
+<hr />
+<h3 id="beispiel">Beispiel</h3>
+<p><strong>Entscheidungsproblem:</strong> “Ist die Zahl <span
+class="math inline">x</span> eine Primzahl?” <span class="math display">
+  L_{prim} = \{\text{bin}(x)\in \{\texttt{0},\texttt{1}\}^{*}\mid x \
+\text{ist Primzahl}   \}  
+</span> Das Problem reduziert sich darauf, zu entscheiden, ob ein
+Wort(<span class="math inline">\text{bin}(x)</span>) aus einer gegebenen
+Sprache(<span class="math inline">L_{prim})</span> ist <span
+class="math inline">\to</span> <strong>Wortproblem</strong></p>
+<hr />
+<hr />
+<p><strong>Backlinks:</strong> - <a
+href="📁Formale_Sprachen&amp;Automaten.html">📁Formale_Sprachen&amp;Automaten</a></p>
+<script>
+renderMathInElement(
+    document.body,
+    {
+        delimiters: [
+            {left: "$$", right: "$$", display: true},
+            {left: "\\[", right: "\\]", display: true},
+            {left: "$", right: "$", display: false},
+            {left: "\\(", right: "\\)", display: false},
+            {left: "\\begin{equation}", right: "\\end{equation}", display: true},
+            {left: "\\begin{align}", right: "\\end{align}", display: true},
+            {left: "\\begin{alignat}", right: "\\end{alignat}", display: true},
+            {left: "\\begin{gather}", right: "\\end{gather}", display: true},
+            {left: "\\begin{CD}", right: "\\end{CD}", display: true},
+        ]
+    }
+);
+</script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+\begin{frame}{$By^2=x^3+Ax^2+x$}
+    \begin{definitionblock}{Montgomery Curve}
+        \[
+        \mathcal{E}_{(A,B)}:By^2=x^3+Ax^2+x, \quad B(A^2-4)\neq0
+        \]
+    \end{definitionblock}
+    \vspace{1em}
+        
+
+    \hline
+    \vspace{1em}
+    \textbf{Punktoperationen}
+    $P=(x_P,y_P),\;Q=(x_Q,y_Q)$
+    
+            
+       
+    \begin{columns}
+    \begin{column}{0.5\linewidth}
+        \begin{center}
+            \textbf{Punktverdopplung}
+            \begin{align*}
+                x_{[2]P} &= B\lambda^2 - 2x_P - A \\
+                y_{[2]P} &= \lambda(x_P - x_{[2]P}) - y_P \\
+                \lambda &= (3x_P^2 + 2Ax_P + 1)/2By_P
+            \end{align*}
+        \end{center}
+        \vfill
+    \end{column}
+    \begin{column}{0.5\linewidth}
+        \begin{center}
+            \textbf{Punktaddition}
+            \begin{align*}
+                x_\oplus &= B\lambda^2 - (x_P + x_Q) - A \\
+                y_\oplus &= \lambda(x_P - x_\oplus) - y_P \\
+                \lambda &= (y_Q - y_P)/(x_Q - x_P)
+            \end{align*}
+        \end{center}
+        \vfill
+    \end{column}
+\end{columns}
+    
+\end{frame}

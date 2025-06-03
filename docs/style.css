@@ -1,0 +1,207 @@
+:root {
+  --bg-color: #0d0d0d;
+  --text-color: #e6e6e6;
+
+  --heading1: #ffcc00; 
+  --heading2: #00ffd5;      /* electric aqua */   
+  --heading3: #b19cd9;      /* Light lavender */
+  --heading4: #b0e0e6;      /* Pale blue */
+  --heading5: #c0c0c0;      /* Silver grey */
+  --heading6: #a8a8a8;      /* Light grey */
+
+  --link: #e8c416;          /* Electric purple */
+  --link-hover: #ff4500;    /* Vibrant orange */
+
+  --blockquote-text: #cccccc;
+  --blockquote-border: #ffcc00;
+  --blockquote-bg: #1a1a1a;
+
+  --pre-bg: #2b0033;
+  --pre-border: #ff66cc;
+  --pre-text: #ffffff;
+
+  --code-bg: #1a1a2e;
+  --code-border: #ff0000;   /* Red for inline code */
+  --code-text: #ffffff;
+
+  --table-border: #ff3399;
+  --table-header-bg: #2a003f;
+  --table-text: #f2f2f2;
+
+  --hr-color: #ffcc00;
+
+  --todo-bg: #ff2e63;
+  --todo-text: #ffffff;
+
+  --tag-bg: #2d00f7;
+  --tag-text: #ffffff;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  margin: 1em 2em;
+  font-size: 120%;
+  line-height: 130%;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: bold;
+  line-height: 100%;
+  margin-top: 1.5em;
+  margin-bottom: 0.5em;
+}
+h1 { font-size: 2em; color: var(--heading1); }
+h2 { font-size: 1.8em; color: var(--heading2); }
+h3 { font-size: 1.6em; color: var(--heading3); }
+h4 { font-size: 1.4em; color: var(--heading4); }
+h5 { font-size: 1.2em; color: var(--heading5); }
+h6 { font-size: 1em; color: var(--heading6); }
+
+p, pre, blockquote, table, ul, ol, dl {
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+
+ul ul, ul ol, ol ol, ol ul {
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+
+li { margin: 0.3em auto; }
+
+ul {
+  margin-left: 2em;
+  padding-left: 0;
+}
+
+dt { font-weight: bold; }
+
+img { border: none; }
+
+pre {
+  border-left: 5px solid var(--pre-border);
+  background-color: var(--pre-bg);
+  padding-left: 1em;
+  font-family: Monaco, "Courier New", monospace;
+  font-size: 0.8em;
+  border-radius: 6px;
+  color: var(--text-color);
+}
+
+p > a {
+  color: white;
+  text-decoration: none;
+  font-size: 0.7em;
+  padding: 3px 6px;
+  border-radius: 3px;
+  background-color: var(--link);
+  text-transform: uppercase;
+  font-weight: bold;
+}
+p > a:hover {
+  color: #dcdcdc;
+  background-color: var(--link-hover);
+}
+
+li > a {
+  color: var(--link);
+  font-weight: bold;
+  text-decoration: none;
+}
+li > a:hover {
+  color: var(--link-hover);
+}
+
+blockquote {
+  color: #cccccc;
+  font-size: 1em;
+  line-height: 100%;
+  padding: 0em 0.5em;
+  background-color: var(--blockquote-bg);
+  border-left: 5px solid var(--blockquote-border);
+}
+
+th, td {
+  border: 1px solid var(--table-border);
+  padding: 0.3em;
+}
+th {
+  background-color: var(--table-header-bg);
+}
+
+hr {
+  border: none;
+  border-top: 1px solid var(--hr-color);
+  width: 100%;
+}
+
+del {
+  text-decoration: line-through;
+  color: #777;
+}
+
+.toc li {
+  list-style-type: none;
+}
+
+.todo {
+  font-weight: bold;
+  background-color: var(--todo-bg);
+  color: white;
+  font-size: 0.8em;
+  padding: 3px 6px;
+  border-radius: 3px;
+}
+
+.justleft { text-align: left; }
+.justright { text-align: right; }
+.justcenter { text-align: center; }
+
+.center {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.tag {
+  background-color: var(--tag-bg);
+  font-family: monospace;
+  padding: 2px;
+  color: #ddd;
+}
+
+.header a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* These use data URIs and don’t need color changes */
+.rejected,
+.done0,
+.done1,
+.done2,
+.done3,
+.done4 {
+  background-repeat: no-repeat;
+  background-position: 0 .2em;
+  padding-left: 1.5em;
+}
+
+/* Adjust position differences manually if needed */
+.done1, .done2, .done3, .done4 {
+  background-position: 0 .15em;
+}
+
+code {
+  font-family: Monaco, "Courier New", monospace;
+  border-radius: 1px;
+  background-clip: padding-box;
+  padding: 0px 3px;
+  display: inline-block;
+  color: #dddddd;
+  border: 1px solid var(--code-border);
+  background-color: var(--code-bg);
+}
+

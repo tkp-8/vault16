@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Abbildungen</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+  <link rel="stylesheet" href="style.css" />
+  <script defer=""
+  src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <link rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css" />
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">Abbildungen</h1>
+<p class="date">2025-06-02 08:16</p>
+<div class="tags">Tags: </div>
+</header>
+<hr />
+<h3 id="definition">Definition</h3>
+<p>Seien <span class="math inline">M</span> und <span
+class="math inline">N</span> Mengen. Eine <em>Abbildung</em> von <span
+class="math inline">M</span> nach <span class="math inline">N</span> ist
+eine Teilmenge <span class="math inline">f \subseteq M\times N</span>,
+so dass folgende Eigenschaften gelten:</p>
+<ol type="1">
+<li>Fuer alle <span class="math inline">m\in M</span> gibt es ein <span
+class="math inline">n\in N</span>, so dass <span
+class="math inline">(m,n)\in f</span></li>
+<li>Wenn <span class="math inline">(m,n)\in f</span> und <span
+class="math inline">(m,n^{\prime})\in f</span>, so folgt <span
+class="math inline">n=n^{\prime}</span></li>
+</ol>
+<p><span class="math inline">M</span> heisst
+<strong>Definitionsbereich</strong>, <span class="math inline">N</span>
+heisst <strong>Wertebereich</strong> von <span
+class="math inline">f</span></p>
+<hr />
+<h3 id="notation">Notation</h3>
+<p>Seien <span class="math inline">f\subseteq M\times N</span> und <span
+class="math inline">g\subseteq L\times M</span> Abbildungen</p>
+<p><strong><span class="math inline">f</span> ist eine Abbildung von
+<span class="math inline">M</span> nach <span
+class="math inline">N</span></strong><br />
+<span class="math inline">f:M\to N</span></p>
+<p><strong>Zu <span class="math inline">m\in M</span> eindeutig
+bestimmte <span class="math inline">n\in N</span></strong><br />
+<span class="math inline">n=f(m)</span></p>
+<p><strong><span class="math inline">m</span> wird auf <span
+class="math inline">f(m)</span> abgebildet</strong> <span
+class="math inline">m\mapsto f(m)</span></p>
+<p><strong>Komposition von <span class="math inline">f</span> und <span
+class="math inline">g</span></strong><br />
+<span class="math inline">g\circ f:L\to N</span>, definiert durch <span
+class="math inline">(g\circ f)(l)=g(f(l))</span></p>
+<p><strong>Identische Abbildung</strong><br />
+<span class="math inline">\text{id}_M:M\to M</span>, <span
+class="math inline">\text{id}_M(m)=m</span> fuer alle <span
+class="math inline">m\in M</span></p>
+<hr />
+<h3 id="terminologie">Terminologie</h3>
+<h5 id="bild">Bild</h5>
+<p>Man nennt <span class="math inline">f(m)</span> das <em>Bild</em> von
+<span class="math inline">m</span> unter <span
+class="math inline">f</span></p>
+<h5 id="bildbereich-alt-bild">Bildbereich (alt: Bild)</h5>
+<p><span class="math inline">\text{Bild}(f)=\{n\in N\mid \text{es gibt
+ein }m\in M \text{ mit } f(m)=n\}</span></p>
+<h5 id="urbild">Urbild</h5>
+<p>Ist <span class="math inline">n\in \text{Bild}(f)</span>, so wird ein
+<span class="math inline">m\in M</span> mit <span
+class="math inline">f(m)=n</span> ein <em>Urbild</em> von <span
+class="math inline">n</span> unter <span class="math inline">f</span>
+genannt</p>
+<h5 id="invertierbarkeit">Invertierbarkeit</h5>
+<p><span class="math inline">f</span> heisst <em>invertierbar</em>, wenn
+es eine Abbildung <span class="math inline">f^{-1}:N \to M</span> gibt,
+so dass <span class="math inline">f^{-1}\circ f = \text{id}_M</span> und
+<span class="math inline">f\circ f^{-1}  = \text{id}_M</span> ist</p>
+<hr />
+<h3 id="klassifizierung">Klassifizierung</h3>
+<h5 id="surjektivitaet">Surjektivitaet</h5>
+<p><span class="math inline">f</span> heisst <em>surjektiv</em>, wenn
+jedes Element <span class="math inline">n\in N</span> in <span
+class="math inline">\text{Bild}(f)</span> liegt</p>
+<h5 id="injektivitaet">Injektivitaet</h5>
+<p><span class="math inline">f</span> heisst <em>injektiv</em>, wenn
+jedes Element im <span class="math inline">\text{Bild}(f)</span> genau
+ein Urbild besitzt</p>
+<h5 id="bijektivitaet">Bijektivitaet</h5>
+<p><span class="math inline">f</span> heisst <em>bijektiv</em>, wenn
+<span class="math inline">f</span> sowohl <em>surjektiv</em> als auch
+<em>injektiv</em> ist</p>
+<hr />
+<h3 id="invertierbare-abbildungen">Invertierbare Abbildungen</h3>
+<p>Sei <span class="math inline">f:M\to N</span> eine Abbildung. Die
+folgenden Aussagen sind aequivalent:<br />
+</p>
+<ol type="1">
+<li><span class="math inline">f</span> ist bijektiv</li>
+<li><span class="math inline">f</span> ist invertierbar</li>
+</ol>
+<hr />
+<hr />
+<p><strong>Backlinks:</strong> - <a
+href="/🗃️Analysis.html">🗃️Analysis</a></p>
+<script>
+renderMathInElement(
+    document.body,
+    {
+        delimiters: [
+            {left: "$$", right: "$$", display: true},
+            {left: "\\[", right: "\\]", display: true},
+            {left: "$", right: "$", display: false},
+            {left: "\\(", right: "\\)", display: false},
+            {left: "\\begin{equation}", right: "\\end{equation}", display: true},
+            {left: "\\begin{align}", right: "\\end{align}", display: true},
+            {left: "\\begin{alignat}", right: "\\end{alignat}", display: true},
+            {left: "\\begin{gather}", right: "\\end{gather}", display: true},
+            {left: "\\begin{CD}", right: "\\end{CD}", display: true},
+        ]
+    }
+);
+</script>
+</body>
+</html>

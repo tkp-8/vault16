@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>CYK-Algorithmus</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+  <link rel="stylesheet" href="style.css" />
+  <script defer=""
+  src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <link rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css" />
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">CYK-Algorithmus</h1>
+<p class="date">2025-05-10 02:28</p>
+<div class="tags">Tags: <span class="tag">algorithmus</span> </div>
+</header>
+<hr />
+<h3 id="zweck">Zweck</h3>
+<ul>
+<li>Wortproblem fuer <a href="kontextfreie_sprachen.html">kontextfreie
+Sprachen</a> loesen</li>
+<li>Entscheidet ob <a href="woerter.html">Wort</a> <span
+class="math inline">w\in L(G)</span></li>
+<li>Nur fuer <a href="kontextfreie_grammatiken">kontextfreie
+Grammatiken</a> in <a href="cnf.html">CNF</a></li>
+</ul>
+<hr />
+<h3 id="eingabe">Eingabe</h3>
+<ul>
+<li>Wort <span class="math inline">w=w_{1},w_{2},\ldots ,w_n</span></li>
+<li>Grammatik <span class="math inline">G=(V,\Sigma,P,S)</span></li>
+</ul>
+<hr />
+<h3 id="ausgabe">Ausgabe</h3>
+<ul>
+<li><span class="math inline">true/false</span>, ob <span
+class="math inline">w\in L(G)</span></li>
+</ul>
+<hr />
+<h3 id="initialisierung">Initialisierung</h3>
+<ul>
+<li>Sei <span class="math inline">w[j,j]</span> das Teilwort von <span
+class="math inline">w</span>, welches mit dem <span
+class="math inline">i</span>-ten Zeichen beginnt und mit dem <span
+class="math inline">j</span>-ten Zeichen endet. <span
+class="math display">
+W_{i,j}\coloneqq \{X\in V\mid X\Rightarrow ^{*} w[i,j]\}  
+</span></li>
+<li>Das Wortproblem reduziert sich darauf, zu testen, ob <span
+class="math inline">S \in W_{1,n}</span></li>
+</ul>
+<hr />
+<h3 id="iteration">Iteration</h3>
+<p><strong>Rekursiver Ansatz</strong></p>
+<p><strong><span class="math inline">j=i</span>:</strong><br />
+</p>
+<ul>
+<li>Da CNF, kann es nur die Regel der Form <span
+class="math inline">A\to w[i,i]</span> geben <span class="math display">
+W_{i,i}=\{A\in V\mid \text{ es gibt die Regel } A\to w[i,i]\}  
+</span></li>
+</ul>
+<p><strong><span class="math inline">j&gt;i</span>:</strong><br />
+</p>
+<ul>
+<li><p>Regel der Form <span class="math inline">A\to XY</span> wurde als
+erstes angewendet <span class="math display">
+A\Rightarrow XY\Rightarrow \cdots \Rightarrow w[i,j]
+</span></p></li>
+<li><p>Da es fuer <span class="math inline">A\neq S</span> keine Regeln
+<span class="math inline">A\to \varepsilon</span> gibt, muss <span
+class="math inline">X\Rightarrow ^{*}u</span> und <span
+class="math inline">Y\Rightarrow ^{*} v</span> folgen, mit <span
+class="math inline">w[i,j]=uv</span></p></li>
+<li><p><strong>Aufteilung</strong> von <span
+class="math inline">w[i,j]</span> in zwei nichtleere Teilwoerter <span
+class="math display">
+W_{i,j}=\bigcup_{t = i}^{j-1}\{A\in V\mid \text{es gibt die Regel }A\to
+XY \text{ und }
+X\Rightarrow ^{*}w[i,t] \text{ und } Y\Rightarrow ^{*}w[t+1,j]\}    
+</span></p></li>
+<li><p>Wir koennen davon ausgehen, dass <span
+class="math inline">W_{i,t}</span> und <span
+class="math inline">W_{t+1,j}</span> schon bestimmt wurden <span
+class="math display">
+W_{i,j}=\bigcup_{t = i}^{j-1}\{A\in V\mid \text{es gibt die Regel }A\to
+XY \text{ und }
+X\in W_{i,t} \text{ und } Y\in W_{t+1,j}\}
+</span></p></li>
+</ul>
+<hr />
+<h3 id="algorithmus">Algorithmus</h3>
+<p><code>Algorithmus 1: CYK-Algorithmus</code></p>
+<p>// Initialisierung<br />
+<strong>01</strong> <strong>for</strong> <span
+class="math inline">i=1</span> to <span class="math inline">n</span>
+<strong>do</strong> <span class="math inline">W[i,i]=\{A\in V \mid A \to
+w[i,i]\}</span><br />
+// Iteration<br />
+<strong>02</strong> <strong>for</strong> <span
+class="math inline">d=1</span> <strong>to</strong> <span
+class="math inline">n-1</span> <strong>do</strong><br />
+<strong>03</strong> <span class="math inline">\cdot \ \cdot</span>
+<strong>for</strong> <span class="math inline">i=1</span>
+<strong>to</strong> <span class="math inline">n-d</span>
+<strong>do</strong><br />
+<strong>04</strong> <span class="math inline">\cdot \cdot \cdot \
+\cdot</span> <span class="math inline">j=i+d</span><br />
+<strong>05</strong> <span class="math inline">\cdot \cdot \cdot \
+\cdot</span> <strong>for</strong> <span class="math inline">t=i</span>
+<strong>to</strong> <span class="math inline">j-1</span>
+<strong>do</strong><br />
+<strong>06</strong> <span class="math inline">\cdot \cdot \cdot \cdot
+\cdot \ \cdot</span> <strong>for all</strong> <span
+class="math inline">A\to XY\in P</span> <strong>do</strong><br />
+<strong>07</strong> <span class="math inline">\cdot \cdot \cdot \cdot
+\cdot \cdot \cdot \ \cdot</span> <strong>if</strong> <span
+class="math inline">X\in W[i,t]</span> <strong>and</strong> <span
+class="math inline">Y\in W[t+1,j]</span> <strong>then</strong> <span
+class="math inline">W[i,j]=W[i,j]\cup \{A\}</span><br />
+<strong>08</strong> <span class="math inline">\cdot \cdot \cdot \cdot
+\cdot \ \cdot</span> <strong>end</strong><br />
+<strong>09</strong> <span class="math inline">\cdot \cdot \cdot \
+\cdot</span> <strong>end</strong><br />
+<strong>10</strong> <span class="math inline">\cdot \ \cdot</span>
+<strong>end</strong><br />
+<strong>11</strong> <strong>end</strong><br />
+<strong>12</strong> <strong>if</strong> <span class="math inline">S\in
+W[1,n]</span> <strong>then return</strong> <span
+class="math inline">true</span> <strong>else return</strong> <span
+class="math inline">false</span></p>
+<hr />
+<hr />
+<p><strong>Backlinks:</strong> - <a
+href="/kontextfreie_sprachen.html">Kontextfreie Sprachen</a></p>
+<script>
+renderMathInElement(
+    document.body,
+    {
+        delimiters: [
+            {left: "$$", right: "$$", display: true},
+            {left: "\\[", right: "\\]", display: true},
+            {left: "$", right: "$", display: false},
+            {left: "\\(", right: "\\)", display: false},
+            {left: "\\begin{equation}", right: "\\end{equation}", display: true},
+            {left: "\\begin{align}", right: "\\end{align}", display: true},
+            {left: "\\begin{alignat}", right: "\\end{alignat}", display: true},
+            {left: "\\begin{gather}", right: "\\end{gather}", display: true},
+            {left: "\\begin{CD}", right: "\\end{CD}", display: true},
+        ]
+    }
+);
+</script>
+</body>
+</html>

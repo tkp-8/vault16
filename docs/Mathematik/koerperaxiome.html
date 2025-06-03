@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Koerperaxiome</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+  <link rel="stylesheet" href="style.css" />
+  <script defer=""
+  src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <link rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css" />
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">Koerperaxiome</h1>
+<p class="date">2025-06-02 09:20</p>
+<div class="tags">Tags: <span class="tag">axiome</span> </div>
+</header>
+<hr />
+<h3 id="axiome">Axiome</h3>
+<p>(A1) <strong>Kommutativgesetze:</strong> Es gilt <span
+class="math inline">a+b=b+a</span> und <span class="math inline">a\cdot
+b=b\cdot a</span> fuer <span class="math inline">a,b\in
+\mathbb{K}</span><br />
+(A2) <strong>Assoziativitaetgesetze:</strong> Es gilt <span
+class="math inline">a+(b+c)=(a+b)+c</span> und <span
+class="math inline">a\cdot (b\cdot c\cdot)=(a\cdot b)\cdot c</span> fuer
+alle <span class="math inline">a,b,c\in \mathbb{K}</span><br />
+(A3) <strong>Distributivgesetz:</strong> Es gilt <span
+class="math inline">a\cdot (b+c)=a\cdot b+a\cdot c</span> fuer alle
+<span class="math inline">a,b,c\in \mathbb{K}</span><br />
+(A4) <strong>Existenz neutraler Elemente:</strong> Es gibt eine Zahl
+<span class="math inline">0</span> und eine davon verschiedene Zahl
+<span class="math inline">1</span>, sodass fuer jedes <span
+class="math inline">a\in \mathbb{R}</span> gilt: <span
+class="math inline">a+0=a</span> und <span class="math inline">a\cdot
+1=a</span><br />
+(A5) <strong>Existenz inverser Elemente:</strong> Zu jeder Zahl <span
+class="math inline">a\in \mathbb{K}</span> gibt es eine Zahl <span
+class="math inline">-a</span>, sodass <span
+class="math inline">a+(-a)=0</span> ist. Ferner gibt es eine Zahl <span
+class="math inline">a^{-1}</span>, sodass <span
+class="math inline">a\cdot a^{-1}=1</span> ist</p>
+<hr />
+<hr />
+<p><strong>Backlinks:</strong> - <a
+href="/📁analysis_grundlagen.html">📂Analysis Grundlagen</a></p>
+<script>
+renderMathInElement(
+    document.body,
+    {
+        delimiters: [
+            {left: "$$", right: "$$", display: true},
+            {left: "\\[", right: "\\]", display: true},
+            {left: "$", right: "$", display: false},
+            {left: "\\(", right: "\\)", display: false},
+            {left: "\\begin{equation}", right: "\\end{equation}", display: true},
+            {left: "\\begin{align}", right: "\\end{align}", display: true},
+            {left: "\\begin{alignat}", right: "\\end{alignat}", display: true},
+            {left: "\\begin{gather}", right: "\\end{gather}", display: true},
+            {left: "\\begin{CD}", right: "\\end{CD}", display: true},
+        ]
+    }
+);
+</script>
+</body>
+</html>

@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Satz von Kleene</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+  <link rel="stylesheet" href="style.css" />
+  <script defer=""
+  src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <link rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css" />
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">Satz von Kleene</h1>
+<p class="date">2025-05-08 13:03</p>
+<div class="tags">Tags: </div>
+</header>
+<hr />
+<h3 id="satz-von-kleene">Satz von Kleene</h3>
+<p>Die Menge der <a href="regulaere_sprachen.html">regulaeren
+Sprachen</a> und die Menge der Sprachen, die durch einen <a
+href="regulaere_ausdruecke.html">regulaeren Ausdruck</a> beschrieben
+werden koennen, sind identisch</p>
+<h3 id="beweis">Beweis</h3>
+<p>Verfahren: Gleichheit zweier Mengen<br />
+Sei <span class="math inline">R</span> ein regulaerer Ausdruck und sei
+<span class="math inline">REG</span> die Menge der regulaeren
+Sprachen</p>
+<h5 id="lrsubseteq-reg">1.) <span class="math inline">L(R)\subseteq
+REG</span></h5>
+<p>Verfahren: Vollstaendige Induktion ueber die Anzahl der benutzten
+Ableitungsregeln fuer <span class="math inline">R</span><br />
+Induktionsanfang: Wenn <span class="math inline">R</span> nur eine
+Ableitungsregel nutzt, gibt es nur drei Faelle:<br />
+<span class="math inline">R=\empty</span>, <span
+class="math inline">R=\varepsilon</span>, <span class="math inline">R=a,
+\ a\in \Sigma</span>. Die dazugehoerigen Sprachen sind alle regulaer,
+sie endlich sind.<br />
+Induktionsannahme: Wir nehmen an, dass die Aussage fuer RAs, die maximal
+<span class="math inline">k</span> Ableitungsregeln nutzen, gilt.<br />
+Induktionsschritt: Sei <span class="math inline">R</span> ein RA, der
+<span class="math inline">k+1</span> Ableitungsregeln benutzt. Dann
+koennen wir <span class="math inline">R</span> schreiben als<br />
+<span class="math inline">R=(S+T), \ R=(S\cdot T)</span> oder <span
+class="math inline">R=(S)^{*}</span>. <span class="math inline">S, \
+K</span>: RAs, die hoechstens <span class="math inline">k</span>
+Ableitungsregeln benutzen. Nach Induktionsvorraussetzung gilt <span
+class="math inline">L(S)\in REG</span> und <span
+class="math inline">L(T)\in REG</span>. Da nach den <a
+href="regulaere_sprachen.html">Abschlusseigenschaften</a> die regulaeren
+Sprachen unter Vereinigung, Konkatenation und Kleene Stern abgeschlossen
+sind, ist dann auch <span class="math inline">L(R)\in REG</span>.</p>
+<h5 id="regsubseteq-lr">2.) <span class="math inline">REG\subseteq
+L(R)</span></h5>
+<p>Sei <span class="math inline">M</span> ein DEA, welcher <span
+class="math inline">L</span> akzeptiert. Wir gehen davon aus, dass die
+Zustaende von <span
+class="math inline">M=(Q,\Sigma,\delta.q_{0},F)</span> mit den Zahlen
+von <span class="math inline">1</span> bin <span
+class="math inline">n</span> durchnummeriert sind, also <span
+class="math inline">Q=\{1,\ldots , n\}</span>. Wir nehmen an, dass der
+Startzustand die Nummer <span class="math inline">1</span> hat. Den RA
+<span class="math inline">R</span> werden wir aus <span
+class="math inline">M</span> ableiten.<br />
+Fuer einen Lauf von Zustand <span class="math inline">i</span> zum
+Zustand <span class="math inline">j</span> nennen wir alle Zustaende
+ausser des ersten und des letzten Zustands einen <em>inneren
+Zustand</em>.<br />
+<span class="math inline">R_{ij}^{(k)}</span>: RA, der beschreibt, wie
+man vom Zustand <span class="math inline">i</span> zum Zustand <span
+class="math inline">j</span> kommt, ohne dabei ueber einen inneren
+Zustand <span class="math inline">&gt;k</span> zu laufen.<br />
+Ziel: Bestimmung der Ausdruecke <span
+class="math inline">R_{1j}^{n}</span> mit <span class="math inline">j\in
+F</span>, denn es gilt fuer <span
+class="math inline">F=\{f_{1},f_{2},\ldots, f_m\}</span> <span
+class="math display">
+  R=R_{1f_{1}}^{(n)}+R_{1f_{2}}^{(n)}+\cdots+R_{1f_m}^{(n)}.   
+</span> Um die <span class="math inline">R_{ij}^{(k)}</span> Ausdruecke
+zu bestimmen, benutzen wir einen rekursiven Ansatz. Der Basisfall ist
+<span class="math inline">k=0</span>: <span class="math display">
+  R_{ij}^{(0)}\coloneqq \begin{cases}
+    \empty, &amp;\text{falls } i\neq j \text{ und } \{a\mid
+\delta(i,a)=j\}=\empty  \\
+    a_{1}+a_{2}+\ldots &amp;\text{falls } i\neq j \text{ und } a_l \in
+\{a\mid \delta(i,a)=j\}\\
+    \varepsilon + a_{1}+a_{2}+\ldots  &amp;\text{falls } i=j \text{ und
+} a_l \in \{a\mid \delta(i,a)=i\}  
+  \end{cases}
+</span> Nun werden wir eine rekursive Beschreibung fuer <span
+class="math inline">R_{ij}^{(k)}</span> finden. Die erste Moeglichkeit
+ist, vom Zustand <span class="math inline">i</span> zu Zustand <span
+class="math inline">j</span> zu kommen, ohne ueber den Zustand <span
+class="math inline">k</span> zu laufen, also <span
+class="math inline">R_{ij}^{(k-1)}</span>. Die zweite Moeglichkeit ist,
+vom Zustand <span class="math inline">i</span> zum Zustand <span
+class="math inline">j</span> zu laufen, und dabei den Zustand <span
+class="math inline">k</span> zu durchlaufen. Ein solcher Lauf kann man
+wie folgt aufspalten:</p>
+<ul>
+<li>der erste Teil laeuft vom Zustand <span class="math inline">i</span>
+zum Zustand <span class="math inline">k</span>, ohne (dazwischen) einen
+Zustand <span class="math inline">\ge k</span> zu besuchen (durch <span
+class="math inline">R_{ik}^{(k-1)}</span> erfasst)</li>
+<li>ein oder mehrere Teile vom Zustand <span
+class="math inline">k</span> zum Zustand <span
+class="math inline">k</span>, ohne (dazwischen) einen Zustand <span
+class="math inline">\ge k</span> zu besuchen (durch <span
+class="math inline">R_{kk}^{(k-1)}</span> erfasst)</li>
+<li>der letzte Teil laeuft vom Zustand <span
+class="math inline">k</span> zum Zustand <span
+class="math inline">j</span>, ohne (dazwischen) einen Zustand <span
+class="math inline">\ge k</span> zu besuchen (durch <span
+class="math inline">R_{kj}^{(k-1)}</span> erfasst)</li>
+</ul>
+<p><span class="math display">
+  R_{ij}^{(k)}=R_{ij}^{(k-1)}+R_{ik}^{(k-1)}(R_{kk}^{(k-1)})^{*}R_{kj}^{(k-1)}     
+</span></p>
+<hr />
+<hr />
+<p><strong>Backlinks:</strong> - <a
+href="/regulaere_sprachen.html">Regulaere Sprachen</a></p>
+<script>
+renderMathInElement(
+    document.body,
+    {
+        delimiters: [
+            {left: "$$", right: "$$", display: true},
+            {left: "\\[", right: "\\]", display: true},
+            {left: "$", right: "$", display: false},
+            {left: "\\(", right: "\\)", display: false},
+            {left: "\\begin{equation}", right: "\\end{equation}", display: true},
+            {left: "\\begin{align}", right: "\\end{align}", display: true},
+            {left: "\\begin{alignat}", right: "\\end{alignat}", display: true},
+            {left: "\\begin{gather}", right: "\\end{gather}", display: true},
+            {left: "\\begin{CD}", right: "\\end{CD}", display: true},
+        ]
+    }
+);
+</script>
+</body>
+</html>

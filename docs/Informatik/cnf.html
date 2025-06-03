@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>CNF</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+  <link rel="stylesheet" href="style.css" />
+  <script defer=""
+  src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <link rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css" />
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">CNF</h1>
+<p class="date">2025-05-10 01:04</p>
+<div class="tags">Tags: <span class="tag">normalform</span> </div>
+</header>
+<hr />
+<h3 id="definition">Definition</h3>
+<h5 id="chomsky-normalform">Chomsky Normalform</h5>
+<p>Eine <a href="kontextfreie_grammatiken.html">kontextfreie
+Grammatik</a> <span class="math inline">G=(V,\Sigma,P,S)</span> ist in
+Chomsky Normalform (CNF), falls sie ausschliesslich aus den Regeln der
+folgenden Form besteht:</p>
+<ol type="1">
+<li><span class="math inline">A\to XY</span> wobei <span
+class="math inline">A,X</span> und <span class="math inline">Y</span>
+Variablen sind, <span class="math inline">X</span> und <span
+class="math inline">Y</span> sind jedoch nicht <span
+class="math inline">S</span></li>
+<li><span class="math inline">A\to x</span>, wobei <span
+class="math inline">A</span> Variable und <span
+class="math inline">x</span> Terminalsymbol</li>
+<li><span class="math inline">S\to \varepsilon</span></li>
+</ol>
+<hr />
+<h3 id="beispiel">Beispiel</h3>
+<p><span class="math display">
+  \begin{align*}
+    S&amp;\to AA\mid AB\mid b\mid \varepsilon \\
+    A&amp;\to BB\mid a\\
+    B&amp;\to b
+  \end{align*}
+</span></p>
+<hr />
+<h3 id="satz">Satz</h3>
+<h5
+id="zu-jeder-kontextfreien-sprache-l-gibt-es-eine-kontextfreie-grammatik-g-in-cnf-sodass-lgl">Zu
+jeder <a href="kontextfreie_sprachen.html">kontextfreien Sprache</a>
+<span class="math inline">L</span> gibt es eine kontextfreie Grammatik
+<span class="math inline">G</span> in CNF, sodass <span
+class="math inline">L(G)=L</span></h5>
+<p><strong>Beweis.</strong> Jede kontextfreie Grammatik laesst sich wie
+folgt in CNF umwandeln.</p>
+<hr />
+<h3 id="umwandlung">Umwandlung</h3>
+<ol type="1">
+<li><strong>Eliminiere Regeln mit <span class="math inline">S</span> auf
+rechter Seite</strong></li>
+</ol>
+<ul>
+<li>Ersetze <span class="math inline">S</span> mit <span
+class="math inline">S^\prime</span></li>
+<li>Neue Regel: <span class="math inline">S\to S^{\prime}</span></li>
+</ul>
+<ol start="2" type="1">
+<li><strong>Eliminiere jede Regel der Form <span
+class="math inline">A\to \varepsilon</span> mit <span
+class="math inline">A\neq S</span></strong></li>
+</ol>
+<ul>
+<li>Streiche <span class="math inline">A\to \varepsilon</span></li>
+<li>Aendere jede Regel mit <span class="math inline">A</span> auf der
+rechten Seite <span class="math inline">X\to uAw, \ u,w\in (\Sigma \cup
+V)^{*}</span> zu <span class="math inline">X\to uAw\mid uw</span></li>
+</ul>
+<ol start="3" type="1">
+<li><strong>Eliminiere jede Regel der Form <span
+class="math inline">A\to B</span></strong></li>
+</ol>
+<ul>
+<li>Streiche <span class="math inline">A\to B</span></li>
+<li>Fuege fuer jede Regel der Form <span class="math inline">B\to
+w</span> eine Regel <span class="math inline">A\to w</span> ein</li>
+</ul>
+<ol start="4" type="1">
+<li><strong>Eliminiere jede Regel mit langer rechter Seite</strong></li>
+</ol>
+<ul>
+<li>Sei <span class="math inline">A\to x_{1}x_{2}\ldots x_n, \quad
+x_i\in V\cup \Sigma</span> eine Regel mit mehr als 2 Zeichen auf der
+rechten Seite</li>
+<li>Seien <span class="math inline">X_{1},X_{2},\ldots X_{n-2}</span>
+neue Variablen</li>
+<li>Fuege folgene Regeln hinzu <span class="math display">
+\begin{align*}
+  A&amp;\to x_{1}X_{1}\\
+  X_{1}&amp;\to x_{2}X_{1}\\
+  &amp; \vdots \\
+  X_{n-2}&amp;\to x_{n-1}x_n
+\end{align*}
+</span></li>
+</ul>
+<ol start="5" type="1">
+<li><strong>Eliminiere jede Regel mit Terminalsymbolen auf der rechten
+Seite, ausser sie hat die Form <span class="math inline">X\to
+a</span></strong></li>
+</ol>
+<ul>
+<li>Neue Variable <span class="math inline">V_x</span> fuer jedes
+Terminalsymbol <span class="math inline">x</span></li>
+<li>Neue Regel <span class="math inline">V_x\to x</span></li>
+</ul>
+<hr />
+<hr />
+<p><strong>Backlinks:</strong> - <a
+href="/kontextfreie_grammatiken.html">Kontextfreie Grammatiken</a></p>
+<script>
+renderMathInElement(
+    document.body,
+    {
+        delimiters: [
+            {left: "$$", right: "$$", display: true},
+            {left: "\\[", right: "\\]", display: true},
+            {left: "$", right: "$", display: false},
+            {left: "\\(", right: "\\)", display: false},
+            {left: "\\begin{equation}", right: "\\end{equation}", display: true},
+            {left: "\\begin{align}", right: "\\end{align}", display: true},
+            {left: "\\begin{alignat}", right: "\\end{alignat}", display: true},
+            {left: "\\begin{gather}", right: "\\end{gather}", display: true},
+            {left: "\\begin{CD}", right: "\\end{CD}", display: true},
+        ]
+    }
+);
+</script>
+</body>
+</html>

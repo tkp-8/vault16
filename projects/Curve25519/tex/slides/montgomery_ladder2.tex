@@ -1,0 +1,38 @@
+\begin{frame}{Montgomery Ladder}
+    \begin{algorithm}[H]
+        \caption{\textbf{\texttt{SWAP()}} – Bedingter Tausch in konstanter Zeit}
+        
+        \textbf{Input:} $(1) \ b \in \{0,1\}$\\
+        \text{} $\quad \quad \quad \; (2) \ \texttt{(x$_0$,x$_1$)}$ \hfill \texttt{//x$_0$ und x$_1$ als n-bit Strings} \\
+        \textbf{Output:} $\texttt{(x$_b$,x$_{b-1}$)}$
+        
+        \begin{algorithmic}[1]  
+            \State \hspace{0.5cm} $\texttt{b} \gets (b,\dots,b)_n$
+            \State \hspace{0.5cm} $\texttt{v} \gets \texttt{b}\land\texttt{(x$_0$ xor x$_1$)}$
+            \State \textbf{return} $\texttt{(x$_0$ xor v, x$_1$ xor v)}$
+        \end{algorithmic}
+    \end{algorithm}    
+\end{frame}
+
+\begin{frame}{Montgomery Ladder}
+    \begin{algorithm}[H]
+        \caption{\textbf{Algorithmus: Montgomery Ladder mit \texttt{SWAP()}}}
+        
+        
+        \textbf{Input:} $(1)\ k=\sum\nolimits_{i=0}^{l-1}k_i2^i$ mit $k_{l-1}=1$  \\ 
+        \text{} $\quad \quad \quad \; (2)\ (X_P,Z_P)$, so dass $(X_P:Z_P)=\textbf{x}(P)$ \\
+        \textbf{Output:} $(X_k,Z_k)$, so dass $(X_k:Z_k)=\textbf{x}([k]P)$
+        
+        \begin{algorithmic}[1]
+            \State $\texttt{(x$_0$,x$_1$)} \gets ((X_P, Z_P), \texttt{xDBL}(X_P, Z_P))$ \\
+            \textbf{for} $i = l-2$ \textbf{downto} 0 \textbf{do}
+            \State \quad $\texttt{(x$_0$,x$_1$)} \gets \texttt{SWAP}((k_{i+1} \texttt{ xor } k_i),\texttt{(x$_0$,x$_1$)})$
+            \State \quad $\texttt{(x$_0$,x$_1$)} \gets (\texttt{xDBL}(\texttt{x$_0$}),\texttt{xADD}(\texttt{x$_0$},\texttt{x$_1$},(X_P,Z_P)))$
+            \State $\texttt{(x$_0$,x$_1$)} \gets \texttt{SWAP}(k_0,\texttt{(x$_0$,x$_1$)})$
+            \State \textbf{return} $\texttt{x$_0$}$ 
+            
+         
+        \end{algorithmic}
+    \end{algorithm}
+    
+\end{frame}

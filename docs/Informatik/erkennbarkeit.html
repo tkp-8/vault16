@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Erkennbarkeit</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+  <link rel="stylesheet" href="style.css" />
+  <script defer=""
+  src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <link rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css" />
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">Erkennbarkeit</h1>
+<p class="date">2025-05-24 11:05</p>
+<div class="tags">Tags: </div>
+</header>
+<hr />
+<h3 id="definition">Definition</h3>
+<h5 id="erkennbarkeit">Erkennbarkeit</h5>
+<p>Wir nennen eine <a href="sprachen.html">Sprache</a> <span
+class="math inline">L</span> <em>erkennbar</em>, falls es ein
+Python-Programm <span class="math inline">P</span> mit einem
+Eingabeparameter <span class="math inline">w</span> gibt, welches genau
+dann eine 1 ausgibt, wenn <span class="math inline">w\in L</span>.</p>
+<h5 id="standardnummerierung-von-sigma">Standardnummerierung von <span
+class="math inline">\Sigma</span></h5>
+<p>Bijektion zwischen den natuerlichen Zahlen und den Woertern ueber
+einem <a href="alphabet.html">Alphabet</a> <span
+class="math inline">\Sigma</span>.<br />
+Woerter werden der Laenge nach nummeriert und Woerter gleicher Laenge
+werden gemaess der Ordnung von <span class="math inline">\Sigma</span>
+geordnet.</p>
+<h5 id="ueberzaehlbare-menge">Ueberzaehlbare Menge</h5>
+<p>Eine Menge <span class="math inline">M</span> ist Ueberzaehlbar wenn
+es keine Bijektion zu den natuerlichen Zahlen fuer sie gibt.</p>
+<hr />
+<h3 id="notation">Notation</h3>
+<p><strong>Ergebnis, das vom Python-Programm <span
+class="math inline">P</span> mit Eingabe <span
+class="math inline">w</span> berechnet wird</strong><br />
+<span class="math inline">P(w)</span></p>
+<p><strong>Von einem Python-Programm erkannte Sprache</strong><br />
+<span class="math inline">L(P)</span></p>
+<hr />
+<h3 id="lemma-1">Lemma 1</h3>
+<h5
+id="die-menge-l-subseteq-sigma-aller-sprachen-ueber-sigma-ist-ueberzaehlbar.">Die
+Menge <span class="math inline">\{L \subseteq \Sigma ^{*} \}</span>
+aller Sprachen ueber <span class="math inline">\Sigma</span> ist
+ueberzaehlbar.</h5>
+<p><strong>Verfahren:</strong> Diagonalisierungsverfahren</p>
+<p><strong>Beweis.</strong> Sei <span class="math inline">L_i</span> die
+<span class="math inline">i</span>-te Sprache in der abgeleiteten
+Nummerierung. Wir tragen alle Sprachen in eine unbeschraenkte Tabelle
+<span class="math inline">T</span> ein. Hierbei werden wir <span
+class="math inline">L_i</span> in die <span
+class="math inline">i</span>-te Zeile eintragen. Die Spalten von <span
+class="math inline">T</span> sind mit Woertern aus <span
+class="math inline">\Sigma ^{*}</span> beschriftet. Die beschriftung der
+<span class="math inline">i</span>-ten Spalte bezeichnen wir mit <span
+class="math inline">w_i</span>. Wir markieren die Woerter, welche in
+<span class="math inline">L_i</span> enthalten sind, indem wir in der
+korrespondierenden Zeile eine 1 eintragen. Wenn nicht 0. So koennen wir
+jede Sprache aus <span class="math inline">L</span> als eine unendliche
+Sequenz von 0en und 1en angeben. Diese Folge nennen wir die
+<strong>Signatur der Sprache</strong>. Wir konstruieren nun eine Sprache
+<span class="math inline">L^{\prime}</span>, welche in der Nummerierung
+der <span class="math inline">L_i</span> fehlt. Dazu negieren wir die
+Diagonale der Tabelle und interpretieren die so erhaltene Folge als
+Signatur von <span class="math inline">L^{\prime}</span>. <span
+class="math display">
+  L^{\prime}\coloneqq \{w_i\mid w_i\notin L_i\}   
+</span> Die Sprache <span class="math inline">L^{\prime}</span> fehlt in
+der Nummerierung der <span class="math inline">L_i</span>, da sie sich
+von jeder dieser Sprachen unterscheidet.</p>
+<hr />
+<h3 id="korollar-1">Korollar 1</h3>
+<h5 id="es-gibt-sprachen-die-nicht-erkennbar-sind.">Es gibt Sprachen die
+nicht erkennbar sind.</h5>
+<p><strong>Beweis.</strong> Nach Lemma 1 gibt es keine Bijektion
+zwischen der Menge der Python-Programme und der Menge aller Sprachen
+ueber <span class="math inline">\Sigma ^{*}</span>. Somit gibt es auch
+keine Bijektion zwischen den erkennbaren Sprachen ueber <span
+class="math inline">\Sigma</span> und allen Sprachen ueber <span
+class="math inline">\Sigma</span>.</p>
+<hr />
+<hr />
+<p><strong>Backlinks:</strong> - <a
+href="/📁Berechenbarkeitstheorie.html">📂Berechenbarkeitstheorie</a></p>
+<script>
+renderMathInElement(
+    document.body,
+    {
+        delimiters: [
+            {left: "$$", right: "$$", display: true},
+            {left: "\\[", right: "\\]", display: true},
+            {left: "$", right: "$", display: false},
+            {left: "\\(", right: "\\)", display: false},
+            {left: "\\begin{equation}", right: "\\end{equation}", display: true},
+            {left: "\\begin{align}", right: "\\end{align}", display: true},
+            {left: "\\begin{alignat}", right: "\\end{alignat}", display: true},
+            {left: "\\begin{gather}", right: "\\end{gather}", display: true},
+            {left: "\\begin{CD}", right: "\\end{CD}", display: true},
+        ]
+    }
+);
+</script>
+</body>
+</html>

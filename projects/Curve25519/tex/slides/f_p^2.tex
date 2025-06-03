@@ -1,0 +1,29 @@
+\begin{frame}{$\mathbb{F}_{p^2}$}
+    \begin{definitionblock}{$\mathbb{F}_{p^2}$}
+        \\ Sei $\delta$ das kleinste nicht-quadratische Element in $\mathbb{F}_p$.\\
+        Dann ist die quadratische Erweiterung von $\mathbb{F}_p$ definiert als
+        \[\mathbb{F}_{p^2} =\mathbb{F}_p(\sqrt{\delta})=\{a+b\sqrt{\delta} \mid a,b\in \mathbb{F}_p\}.\]
+    \end{definitionblock}
+    \vspace{1em}
+    \textbf{Bemerkung:}\\
+    \begin{itemize}
+        \item Ganau $(p-1)/2$ nicht-quadratische Zahlen in $\mathbb{F}_p$
+        \item $\alpha$ ist nicht-quadratisch $\Leftrightarrow$  $\alpha/\delta$ ist eine Quadratzahl 
+    \end{itemize}
+    
+\end{frame}
+
+\begin{frame}{$\mathbb{F}_{p^2}$}
+    \textbf{Reguläre Kurve:}\\
+    $\mathcal{E}_A:y^2=x^3+Ax^2+x$\quad über $\mathbb{F}_p$\\
+    $\mathcal{E}^\prime(\mathbb{F}_{p^2})=\{\mathcal{O}\}\cup (\mathcal{E}(\mathbb{F}_{p^2})\cap (\mathbb{F}_p\times\mathbb{F}_p))$
+    $\mathcal{E}_A:y^2=x^3+Ax^2+x$\\
+    \vspace{1em}
+    \textbf{Quadratischer Twist:}\\
+    $\mathcal{E}_{(A,B)}:By^2=x^3+Ax^2+x$\quad über $\mathbb{F}_p$ (B nicht-quadratisch)\\
+    $\mathcal{E}^{\prime\prime}(\mathbb{F}_{p^2})=\{\mathcal{O}\}\cup (\mathcal{E}(\mathbb{F}_{p^2})\cap (\mathbb{F}_p\times\sqrt{\delta}\mathbb{F}_p))$
+    \[\mathcal{E}(\mathbb{F}_{p^2})=\mathcal{E}^\prime(\mathbb{F}_{p^2})\cup\mathcal{E}^{\prime\prime}(\mathbb{F}_{p^2})\]
+    \begin{center}
+        Montgomery Ladder auf der regulären Kurve und \\ihrem quadratischen Twist gleich, da sie nicht von B abhängig ist
+    \end{center}
+\end{frame}

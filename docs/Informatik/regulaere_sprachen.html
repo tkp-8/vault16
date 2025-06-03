@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Regulaere Sprachen</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+  <link rel="stylesheet" href="style.css" />
+  <script defer=""
+  src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <link rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css" />
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">Regulaere Sprachen</h1>
+<p class="date">2025-05-07 05:42</p>
+<div class="tags">Tags: </div>
+</header>
+<hr />
+<h3 id="definition">Definition</h3>
+<p>Jede der folgenden Bedingungen ist aequivalent zur Regularitaed einer
+<a href="sprachen.html">Sprache</a> <span
+class="math inline">L</span></p>
+<ul>
+<li>es gibt einen sie definierenden <a
+href="regulaerer_ausdruck.html">regulaeren Ausdruck</a></li>
+<li>Es gibt einen <a href="endliche_automaten.html">endlichen
+Automaten</a>, der die Sprache akzeptiert</li>
+<li><span class="math inline">L</span> wird von einer regulaeren
+Grammatik erzeugt <span class="math display">
+REG \coloneqq \{L\mid L\text{ ist regulaer}\}  
+</span></li>
+</ul>
+<hr />
+<h3 id="satz-1">Satz 1</h3>
+<h5 id="jede-endliche-sprache-ist-regulaer">Jede endliche Sprache ist
+regulaer</h5>
+<p><strong>Beweis.</strong> Sei <span class="math inline">L\subseteq
+\Sigma ^{*}</span> eine endliche Sprache. <span
+class="math inline">l</span>: laengstes Wort, <span
+class="math inline">\Sigma=\{\texttt{a},\texttt{b}\}</span><br />
+Wir muessen zeigen, dass es einen <a href="dea.html">DEA</a> <span
+class="math inline">M</span> fuer <span class="math inline">L</span>
+existiert.<br />
+</p>
+<ul>
+<li>Grundstruktur des Zustandsdiagramms entspricht einem <a
+href="binaerer_baum.html">binearen Baum</a>
+<ul>
+<li>Tiefe <span class="math inline">l</span></li>
+<li>von einem inneren Knoten gibt es zweit Kanten: <span
+class="math inline">\texttt{a}</span> und <span
+class="math inline">\texttt{b}</span></li>
+<li>Wurzel: Startzustand</li>
+</ul></li>
+<li>fuer jeden Knoten existiert genau einen Pfad von der Wurzel</li>
+<li>Zustand <span class="math inline">q_w</span>, wenn <span
+class="math inline">w</span> das <a href="woerter.html">Wort</a>, das
+man lesen muss, um ihn zu erreichen</li>
+<li><span class="math inline">F=\{q_w\mid w\in L\}</span></li>
+<li><strong>Muellzustand</strong> <span class="math inline">q_-</span>
+fuer <span class="math inline">|w|&gt;l</span></li>
+<li><strong>Allgemein:</strong> <span class="math inline">k</span>-aerer
+Baum mit <span class="math inline">k=|\Sigma|</span></li>
+</ul>
+<hr />
+<h3 id="satz-2">Satz 2</h3>
+<h5
+id="sei-l-eine-regulaere-sprache-dann-existiert-ein-regulaerer-ausdruck-r-mit-lrl">Sei
+<span class="math inline">L</span> eine regulaere Sprache, dann
+existiert ein regulaerer Ausdruck <span class="math inline">R</span> mit
+<span class="math inline">L(R)=L</span></h5>
+<p><strong>Beweis.</strong> <a href="satz_von_kleene.html">Satz von
+Kleene</a></p>
+<hr />
+<h3 id="abschlusseigenschaften">Abschlusseigenschaften</h3>
+<h5
+id="die-regulaeren-sprachen-reg-sind-unter-folgenden-operationen-abgeschlossen">Die
+regulaeren Sprachen <span class="math inline">REG</span> sind unter
+folgenden Operationen abgeschlossen</h5>
+<ul>
+<li><p><strong>Vereinigung</strong><br />
+<strong>Beweis.</strong> Verfahren: Produktautomat.<br />
+Seien <span class="math inline">L_{1},L_{2}</span> regulaere Sprachen
+mit den zugehoerigen DEAs <span class="math inline">M_{1}, M_{2}</span>.
+Wir konstruieren einen DEA <span
+class="math inline">M_{3}=(Q_{3},\Sigma,\delta_{3},q_{3},F_{3})</span>,
+der die Sprache <span class="math inline">L(M_{3})=L_{1}\cup
+L_{2}</span> akzeptiert. Wir lassen <span
+class="math inline">M_{1}</span> und <span
+class="math inline">M_{2}</span> gleichzeitig durch <span
+class="math inline">M_{3}</span> ausfuehren lassen, indem wir <span
+class="math inline">M_{3}</span> in einem Zustandsraum von <span
+class="math inline">Q_{3}\coloneqq Q_{1}\times Q_{2}</span> laufen
+lassen. Der Startzustand von <span class="math inline">M_{3}</span> ist
+<span class="math inline">q_{3}=(q_{1},q_{2})</span>.<br />
+Wir definieren die Uebergangsfunktion als <span class="math display">
+\forall (p,q)\in Q_{3} \ \forall a\in \Sigma: \quad
+\delta_{3}((p,q),a)\coloneqq (\delta_{1}(p,a),\delta_{2}(q,a)).
+</span> Als Letztes legen wir die Menge <span
+class="math inline">F_{3}</span> fest. <span class="math display">
+F_{3}\coloneqq \{(p,q)\in Q_{3}\mid p \in F_{1} \text{ oder } q \in
+F_{2}\}  
+</span> <strong>Alternativer Beweis:</strong> NEA Konstruktion. <img
+src="img/reg_1.png" /></p></li>
+<li><p><strong>Konkatenation</strong><br />
+<strong>Beweis.</strong> Verfahren: NEA Konstruktion.<br />
+Seien <span class="math inline">L_{1},L_{2}</span> regulaere Sprachen
+mit den zugehoerigen DEAs <span class="math inline">M_{1}, M_{2}</span>.
+Wir konstruieren einen NEA <span class="math inline">N</span>, welcher
+die Sprache <span class="math inline">L(M_{3})=L_{1}\circ L_{2}</span>
+akzeptiert. Fuer jeden akzeptierten Zustand von <span
+class="math inline">M_{1}</span> fuegen wir einen <span
+class="math inline">\varepsilon</span>-Uebergang zum Startzustand von
+<span class="math inline">M_{2}</span> hinzu.<br />
+Als akzeptierende Zustaende von <span class="math inline">N</span>
+waehlen wir nur die akzeptierenden Zustaende von <span
+class="math inline">M_{2}</span><br />
+</p></li>
+<li><p><strong>Kleene Stern</strong><br />
+<strong>Beweis.</strong> Verfahren: NEA Konstruktion.<br />
+Sei <span class="math inline">L\in REG</span> und <span
+class="math inline">M</span> ein DEA, welcher <span
+class="math inline">L</span> akzeptiert. Wir fuegen einen neuen
+Startzustand ein, der gleichzeitig ein akzeptierender Zustand ist, da
+<span class="math inline">\varepsilon \in L^{*}</span>. Wir verbinden
+den neuen Startzustand mit einem <span
+class="math inline">\varepsilon</span>-Uebergang zum alten Startzustand
+und zusaetzlich fuehren wir <span
+class="math inline">\varepsilon</span>-Uebergaenge von den
+akzeptierenden Zustaenden zum neuen Startzustand ein.</p></li>
+</ul>
+<hr />
+<hr />
+<p><strong>Backlinks:</strong> - <a
+href="endliche_automaten.html">Endliche Automaten</a></p>
+<script>
+renderMathInElement(
+    document.body,
+    {
+        delimiters: [
+            {left: "$$", right: "$$", display: true},
+            {left: "\\[", right: "\\]", display: true},
+            {left: "$", right: "$", display: false},
+            {left: "\\(", right: "\\)", display: false},
+            {left: "\\begin{equation}", right: "\\end{equation}", display: true},
+            {left: "\\begin{align}", right: "\\end{align}", display: true},
+            {left: "\\begin{alignat}", right: "\\end{alignat}", display: true},
+            {left: "\\begin{gather}", right: "\\end{gather}", display: true},
+            {left: "\\begin{CD}", right: "\\end{CD}", display: true},
+        ]
+    }
+);
+</script>
+</body>
+</html>
