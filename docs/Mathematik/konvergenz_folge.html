@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Konvergenz_Folge</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+  <link rel="stylesheet" href="style.css" />
+  <script defer=""
+  src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <link rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css" />
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">Konvergenz_Folge</h1>
+<p class="date">2025-06-03 00:11</p>
+<div class="tags">Tags: </div>
+</header>
+<hr />
+<h3 id="definition">Definition</h3>
+<p>Eine reelle <a href="folgen.html">Folge</a> <em>konvergiert</em>
+gegen <span class="math inline">a\in \mathbb{R}</span>, wenn es zu jeder
+positiven Zahl <span class="math inline">\varepsilon</span> einen Index
+<span class="math inline">n_{0}</span> so gibt, dass fuer alle Indizes
+<span class="math inline">n&gt;n_{0}</span> stets <span
+class="math inline">|a_n-a|&lt;\varepsilon</span> ist</p>
+<p><strong>Bemerkung:</strong> Eine Folge ist <em>konvergent</em>, wenn
+sie nicht <a href="divergenz_folge.html">divergent</a> ist</p>
+<hr />
+<h3 id="notation">Notation</h3>
+<p>Dass eine Folge <span class="math inline">(a_n)</span> gegen <span
+class="math inline">a</span> konvergiert drueckt man wie fogt aus: <span
+class="math display">
+  \lim_{n\to \infty}a_n = a \text{ oder } \lim{a_n} =a
+</span></p>
+<hr />
+<h3 id="terminologie">Terminologie</h3>
+<p><strong>Teilfolge</strong><br />
+Ist <span class="math inline">(n_{1},n_{2},\ldots )</span> eine streng
+wachsende Folge von natuerlichen Zahlen (also <span
+class="math inline">n_i&lt;n_{i+1}</span> fuer alle <span
+class="math inline">i\in \mathbb{N}</span>), so nennen wir <span
+class="math inline">(a_{n_{1}},a_{n_{2}}, \ldots )</span> eine
+<em>Teilfolge</em> von <span class="math inline">(a_n)</span></p>
+<p><strong>Beschraenkte Folgen</strong><br />
+Eine Folge <span class="math inline">(a_n)</span> heisst
+<em>beschraenkt</em>, wenn die Menge <span
+class="math inline">\{a_{1},a_{2},\ldots \}</span> beschraenkt ist</p>
+<p><strong>Monotonie</strong><br />
+Eine Folge <span class="math inline">(a_n)</span> heisst
+<em>monoton</em> falls gilt:</p>
+<ol type="1">
+<li><span class="math inline">\forall n\in \mathbb{N}: a_n\le
+a_{n+1}</span>, oder</li>
+<li><span class="math inline">\forall n\in \mathbb{N}: a_n\ge
+a_{n+1}</span></li>
+</ol>
+<p>Im ersten fall nennt man <span class="math inline">(a_n)</span>
+<em>monoton wachsend</em>, im zweiten Fall <em>monoton fallend</em></p>
+<hr />
+<h3 id="eigenschaften-konvergenter-folgen">Eigenschaften konvergenter
+Folgen</h3>
+<h5 id="proposition-1">Proposition 1</h5>
+<p>Eine konvergente Folge besitzt genau einen Grenzwert</p>
+<h5 id="proposition-2">Proposition 2</h5>
+<p>Jede Teilfolge einer konvergenten Folge <span
+class="math inline">(a_n)</span> konvergiert gegen <span
+class="math inline">\lim{a_n}</span></p>
+<h5 id="proposition-3">Proposition 3</h5>
+<p>Jede konvergente Folge <span class="math inline">(a_n)</span> ist
+beschraenkt</p>
+<h5 id="proposition-4">Proposition 4</h5>
+<p>Jede <a href="reelle_zahlen.html">reelle Zahl</a> <span
+class="math inline">a</span> ist Grenzwert einer Folge rationaler
+Zahlen</p>
+<hr />
+<h3 id="beispiele-konvergenter-folgen">Beispiele konvergenter
+Folgen</h3>
+<p><strong>Konstante Folge</strong><br />
+<span class="math inline">(a,a,a\ldots )</span> konvergiert gegen <span
+class="math inline">a</span></p>
+<p><strong>Kehrwert einer Wurzel</strong><br />
+Sei <span class="math inline">p \in \mathbb{N}</span>. Die Folge <span
+class="math inline">\left(\frac{1}{\sqrt[p]{n}}\right)</span>
+konvergiert gegen <span class="math inline">0</span></p>
+<p><strong>Wurzel mit selbem Radikand und
+Wurzelexponenten</strong><br />
+<span class="math inline">(\sqrt[n]{n})</span> konvergiert gegen 1</p>
+<p><strong>Potenzfolge mit |Basis| <span
+class="math inline">&lt;1</span></strong><br />
+Fuer feste <span class="math inline">q</span> mit <span
+class="math inline">|q|&lt;1</span> konvergiert die Folge <span
+class="math inline">(q^{n})</span> gegen 0</p>
+<hr />
+<h3 id="rechnen-mit-konvergenten-folgen">Rechnen mit konvergenten
+Folgen</h3>
+<ul>
+<li><a href="vergleichssatz.html">Vergleichssatz</a></li>
+<li><a href="einschnuerungssatz.html">Einschnuerungssatz</a></li>
+<li><a href="betragssatz.html">Betragssatz</a></li>
+</ul>
+<h5 id="rechenregeln">Rechenregeln</h5>
+<p>Sei <span class="math inline">(a_n)</span> konvergent gegen <span
+class="math inline">a</span>, und sei <span
+class="math inline">(b_n)</span> konvergent gegen <span
+class="math inline">b</span>.</p>
+<ol type="1">
+<li><span class="math inline">(a_n+b_n)</span> konvergiert gegen <span
+class="math inline">a+b</span></li>
+<li><span class="math inline">(a_nb_n)</span> konvergiert gegen <span
+class="math inline">ab</span></li>
+<li>Ist <span class="math inline">\alpha \in \mathbb{R}</span>, so
+konvergiert <span class="math inline">(\alpha a_n)</span> gegen <span
+class="math inline">\alpha a</span></li>
+<li><span class="math inline">(a_n-b_n)</span> konvergiert gegen <span
+class="math inline">a-b</span></li>
+<li>Ist <span class="math inline">b\neq 0</span>, und sind fast alle
+<span class="math inline">b_n\neq 0</span>, so konvergiert <span
+class="math inline">(\frac{a_n}{b_n})</span> gegen <span
+class="math inline">\frac{a}{b}</span></li>
+</ol>
+<hr />
+<h3 id="vier-prinzipien-der-konvergenztheorie">Vier Prinzipien der
+Konvergenztheorie</h3>
+<ol type="1">
+<li><a href="monotonieprinzip.html">Monotonieprinzip</a></li>
+<li><a href="bolzano_weierstrass.html">Bolzano_Weierstrass</a></li>
+<li><a href="cauchyfolgen.html">Cauchyfolgen</a></li>
+<li><a
+href="intervallverschaltelung.html">Intervallverschaltelung</a></li>
+</ol>
+<hr />
+<hr />
+<p><strong>Backlinks:</strong> - <a
+href="/konvergenz.html">Konvergenz</a></p>
+<script>
+renderMathInElement(
+    document.body,
+    {
+        delimiters: [
+            {left: "$$", right: "$$", display: true},
+            {left: "\\[", right: "\\]", display: true},
+            {left: "$", right: "$", display: false},
+            {left: "\\(", right: "\\)", display: false},
+            {left: "\\begin{equation}", right: "\\end{equation}", display: true},
+            {left: "\\begin{align}", right: "\\end{align}", display: true},
+            {left: "\\begin{alignat}", right: "\\end{alignat}", display: true},
+            {left: "\\begin{gather}", right: "\\end{gather}", display: true},
+            {left: "\\begin{CD}", right: "\\end{CD}", display: true},
+        ]
+    }
+);
+</script>
+</body>
+</html>
