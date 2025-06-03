@@ -7,8 +7,17 @@ tags:
 ----
 
 ### Definition
+A [supervised](statistical_learning) learning technique that assigns data points to predefined 
+*categories* or *classes* based on the predictors
 
+---
 
+### Techniques
+##### Linear/Quadratic Discriminant Analysis
+
+##### Support Vector Machines (SVM)
+
+##### Artificial Neural Networks (ANN)
 
 
 

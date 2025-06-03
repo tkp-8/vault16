@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>Regression</title>
+  <title>Time_Series_Analysis</title>
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
@@ -25,33 +25,47 @@
 </head>
 <body>
 <header id="title-block-header">
-<h1 class="title">Regression</h1>
-<p class="date">2025-06-03 06:26</p>
+<h1 class="title">Time_Series_Analysis</h1>
+<p class="date">2025-06-03 06:27</p>
 <div class="tags">Tags: </div>
 </header>
 <hr />
 <h3 id="definition">Definition</h3>
-<p>Group of <a href="statistical_learning.html">supervised</a> machine
-learning technique used to model the relationship between a
-<strong>dependent variable</strong> and one or more <strong>independent
-variables</strong>, predicting a <strong>continuous</strong> output</p>
+<p>A <a href="statistical_learning.html">statistical method</a> for
+analyzing and modelling data that is <em>ordered in time</em>, often
+used for forcasting future values based on past observations</p>
 <hr />
-<h3 id="techniques">Techniques</h3>
-<h5 id="linear-regression">Linear Regression</h5>
+<h3 id="time-series-processes">Time Series Processes</h3>
+<p><strong>Def:</strong> A <strong>mathematical model</strong> that
+describes how a variable evolves over time</p>
 <ul>
-<li>Assumes a linear relationship between the predictors and the
-response</li>
-<li>Parameters are estimated via <em>ordinary least squares</em>
-(OLS)</li>
+<li><a href="random_walk.html">Random Walk</a> (non-stationary)</li>
+<li><a href="mean_reversion.html">Mean Reversion</a> (stationary)</li>
 </ul>
-<h5 id="logistic-regressionk">Logistic Regressionk</h5>
+<hr />
+<h3 id="time-series-tests">Time Series Tests</h3>
+<p><strong>Def:</strong> <strong>Statistical procedures</strong> used to
+assess properties of time series, such as stationarity, autocorrelation,
+or heteroskedasticity</p>
 <ul>
-<li>Designed to predict a <strong>categorical</strong> response
-(e.g. “UP”, “DOWN”, “FLAT”)</li>
-<li>Technically a <a href="classification.html">classification</a>
-tool</li>
-<li><em>Maximum Likelihood Estimation</em> (MLE) is used to determine
-the parameters</li>
+<li><a href="adf_test.html">ADF Test</a></li>
+</ul>
+<hr />
+<h3 id="time-series-models">Time Series Models</h3>
+<p><strong>Def:</strong> <strong>Parametric</strong> or
+<strong>algorithmic</strong> representations of time series processes,
+used to fit historical data and forecast future values</p>
+<h5 id="autoregressive-integrated-moving-average-arima">Autoregressive
+Integrated Moving Average (ARIMA)</h5>
+<ul>
+<li>Used to model the variations in the absolute value of a time
+series</li>
+</ul>
+<h5
+id="autoregressive-conditional-heteroskedasticity-arch">Autoregressive
+Conditional Heteroskedasticity (ARCH)</h5>
+<ul>
+<li>Used to model the volatility of time series over time</li>
 </ul>
 <hr />
 <hr />
