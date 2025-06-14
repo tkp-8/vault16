@@ -18,5 +18,6 @@ tags: Index
 - [Mersenne'sche Primzahlen](mersennesche_primzahlen)
 - [Kongruenzen](kongruenzen)
 - [Restklassen](restklassen)
+- [Pythagoreisches_Tripel](pythagoreisches_tripel)
  
 ---
