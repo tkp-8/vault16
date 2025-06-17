@@ -7,9 +7,18 @@ tags:
 ----
 
 ### Definition 
-- programmierbare Maschine, die durch gespeicherten Meschinenbefehle gesteuert wird
-- erweitert ein komplexes Schaltwerk um die Faehigheit, Daten zu verarbeiten, zu speichern,
-und gezielt Befehle auszufuehren
+- Krogrammierbare Maschine, die durch gespeicherten Meschinenbefehle gesteuert wird
+- Computer entsteht aus einer Erweiterung eines [komplexen Schaltwerks](komplexes_schaltwerk) durch Hinzufuegen mehrerer
+  Steueralgorithmen (Befehle) und Registerblock fuer Operanden
+
+---
+
+### Zentrale Idee
+Befehle im Speicher ablegen und durch [Leitwerk](leitwerk) holen lassen
+
+---
+
+### Funktionsweise
 
 
 

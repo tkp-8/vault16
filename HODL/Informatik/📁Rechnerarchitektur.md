@@ -10,8 +10,8 @@ tags: Index
 
 ### Index
 - [Computer](computer)
-- Rechenwerk
-- Leitwerk
+- [Rechenwerk](rechenwerk)
+- [Leitwerk](leitwerk)
 - Speicher 
 
 ---
