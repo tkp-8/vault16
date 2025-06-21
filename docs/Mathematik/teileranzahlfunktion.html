@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Teileranzahlfunktion</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+  <link rel="stylesheet" href="style.css" />
+  <script defer=""
+  src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <link rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css" />
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">Teileranzahlfunktion</h1>
+<p class="date">2025-06-21 00:53</p>
+<div class="tags">Tags: </div>
+</header>
+<hr />
+<h3 id="definition">Definition</h3>
+<p>Die Funktion <span class="math inline">\tau:\mathbb{N}\to
+\mathbb{N}</span>, definiert durch <span
+class="math inline">\tau(n)=\sum_{d\mid n}{1}</span> fuer alle <span
+class="math inline">n\in \mathbb{N}</span></p>
+<hr />
+<h3 id="maple">Maple</h3>
+<p><code>Divisors(n):</code> Auflistung der positiven Teiler einer
+natuerlichen Zahl <span class="math inline">n</span><br />
+<code>tau(n):</code> Ordnung von <code>Divisors(n)</code><br />
+<code>SumOfDivisors(n,k):</code> Summe der <span
+class="math inline">k</span>-ten Potenz aller positiven Teiler von <span
+class="math inline">n</span></p>
+<hr />
+<h3 id="satz-1">Satz 1</h3>
+<p>Sei <span class="math inline">n\in \mathbb{N}, n&gt;1</span>, und sei
+<span class="math inline">n=p_{1}^{e_{1}}\cdots p_r^{e_r }</span> die
+kanonische Primfaktorzerlegung von <span class="math inline">n</span>.
+Dann gilt <span class="math display">
+  \tau(n)= \prod_{i=1}^{r}{(e_i+1)}
+</span></p>
+<p><strong>Beweis</strong>: Induktion nach <span
+class="math inline">n</span></p>
+<hr />
+<h3 id="korollar-1">Korollar 1</h3>
+<p>Sei <span class="math inline">n\in \mathbb{N}, n&gt;1</span>. Dann
+gilt <span class="math display">
+  n \text{ ist Quadratzahl }\Leftrightarrow \tau(n) \text{ ungerade }
+</span></p>
+<p><strong>Beweis:</strong><br />
+<span class="math inline">\Rightarrow</span>: Sei <span
+class="math inline">n</span> eine Quadratzahl. Dann ist <span
+class="math inline">n=a^{2}</span> fuer ein <span
+class="math inline">a\in \mathbb{N}</span>. Sei <span
+class="math inline">p_{1}^{e_{1}}\cdots p_{r}^{e_r}</span> die
+kanonische Primfaktorzerlegung von <span class="math inline">a</span>.
+Dann ist die kononische Primfaktorzerlegung von <span
+class="math inline">n=p_{1}^{2e_{1}}\cdots p_r^{{2e_r}}</span>. Mit Satz
+1 folgt <span
+class="math inline">\tau(n)=\prod_{i=1}^{r}{2e_i+1}</span>. Somit ist
+jeder Faktor von <span class="math inline">\tau(n)</span> ungerade und
+folglich ist <span class="math inline">\tau(n)</span> auch ungerade.</p>
+<p><span class="math inline">\Leftarrow</span>: Sei <span
+class="math inline">\tau(n)</span> ungerade und sei <span
+class="math inline">n=p_{1}^{e_{1}}\cdots p_r^{e_r}</span> die
+kanonische Primfaktorzerlegung von <span class="math inline">n</span>.
+Dann gilt <span class="math inline">2\nmid
+\prod_{i=1}^{r}(e_{1}+1)</span>. Somit sind alle <span
+class="math inline">e_{i}+1</span> ungerade, das heisst, alle <span
+class="math inline">e_{i},1\le i\le r</span>, sind gerade. Somit gilt
+<span class="math inline">e_i=2f_i</span>, mit <span
+class="math inline">f_i\in \mathbb{N}</span>.</p>
+<hr />
+<h3 id="korollar-2">Korollar 2</h3>
+<p>Sei <span class="math inline">n\in \mathbb{N},n&gt;1</span>. Sei
+<span class="math inline">p(n)</span> das Produkt aller positiven Teiler
+von <span class="math inline">n</span>. Dann gilt <span
+class="math display">
+  p(n)=n^{\frac{\tau(n)}{2}}
+</span></p>
+<p><strong>Beweis:</strong> Seien <span
+class="math inline">1=d_{1}&lt;d_{2}&lt;\cdots&lt;d_{\tau(n)}=n</span>
+die Teiler von <span class="math inline">n</span>. Dann gilt <span
+class="math inline">d_{1}d_{\tau(n)}=n,d_{2}d_{\tau(n)-1}=n,
+\ldots</span> Wir unterscheiden jetzt zwei faelle</p>
+<p>i ) <span class="math inline">\tau(n)</span> ist gerade, also <span
+class="math inline">\tau(n)=2t</span> fuer ein <span
+class="math inline">t\in \mathbb{N}</span>. Dann gilt <span
+class="math display">
+  p(n)=d_{1}\cdot d_{2}\cdots d_{2t}=(d_{1}d_{2t})\cdots(d_t
+d_{t+1})=n^{t}=n^{\frac{\tau(n)}{2}}  
+</span></p>
+<p>ii ) <span class="math inline">\tau(n)</span> ist ungerade, also
+<span class="math inline">\tau(n)=2t+1</span> fuer ein <span
+class="math inline">t\in \mathbb{N}</span>. Dann gilt <span
+class="math display">
+  p(n)=d_{1}\cdot d_{2}\cdots d_{2t+1} = (d_{1}d_{2t+1})\cdots (d_t
+d_{t_{t+2}}) d_{t+1}
+</span> Mit Korollar 1 ist <span class="math inline">n</span> eine
+Quadratzahl, und <span class="math inline">d_{t+1}=\sqrt{n}\in
+\mathbb{N}</span>. Es folgt <span class="math inline">n^{t}\cdot
+\sqrt{n}=n^{t+\frac{1}{2}}=n^{\frac{\tau(n)}{2}}</span></p>
+<hr />
+<hr />
+<p><strong>Backlinks:</strong> - <a
+href="/📁Elementare_Zahlentheorie.html">📂Elementare_Zahlentheorie</a></p>
+<script>
+renderMathInElement(
+    document.body,
+    {
+        delimiters: [
+            {left: "$$", right: "$$", display: true},
+            {left: "\\[", right: "\\]", display: true},
+            {left: "$", right: "$", display: false},
+            {left: "\\(", right: "\\)", display: false},
+            {left: "\\begin{equation}", right: "\\end{equation}", display: true},
+            {left: "\\begin{align}", right: "\\end{align}", display: true},
+            {left: "\\begin{alignat}", right: "\\end{alignat}", display: true},
+            {left: "\\begin{gather}", right: "\\end{gather}", display: true},
+            {left: "\\begin{CD}", right: "\\end{CD}", display: true},
+        ]
+    }
+);
+</script>
+</body>
+</html>
