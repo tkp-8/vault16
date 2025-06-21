@@ -9,6 +9,7 @@ tags: Index
 ### Index 
 
 - [Abbildungen](abbildungen)
+- [Polynome](polynome)
 - [Koerperaxiome](koerperaxiome)
 - [Ordnungsaxiome](ordnungsaxiome)
 - [Schnittaxiom](schnittaxiom)
@@ -33,6 +34,7 @@ tags: Index
 - [Konvergenz_Funktion](konvergenz_funktion)
 - [Reihen](reihen)
 - [Konvergenz_Reihe](konvergenz_reihe)
+- [Polynomfunktionen](polynomfunktionen)
 
 
 

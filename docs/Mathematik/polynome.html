@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Polynome</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+  <link rel="stylesheet" href="style.css" />
+  <script defer=""
+  src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <link rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css" />
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">Polynome</h1>
+<p class="date">2025-06-21 10:48</p>
+<div class="tags">Tags: </div>
+</header>
+<hr />
+<h3 id="definition">Definition</h3>
+<h5 id="polynom">Polynom</h5>
+<p>Sei <span class="math inline">\mathbb{K}</span> ein Koerper. Ein
+<em>Polynom</em> ueber <span class="math inline">\mathbb{K}</span> in
+der Unbestimmten <span class="math inline">T</span> hat die Form <span
+class="math display">
+    a_{0}T^{0}+a_{1}T^{1}+\cdots+a_nT^{n}=\sum_{i=0}^{n}a_iT^{i}     
+</span> Die Menge aller Polynome ueber <span
+class="math inline">\mathbb{K}</span> wird mit <span
+class="math inline">\mathbb{K}[T]</span> bezeichnet</p>
+<h5 id="koeffizient">Koeffizient</h5>
+<p><span class="math inline">a_{0},\ldots ,a_n\in \mathbb{K}</span></p>
+<h5 id="nullpolynom">Nullpolynom</h5>
+<p>Wenn alle Koeffizienten eines Polynoms <span
+class="math inline">0</span> sind</p>
+<h5 id="grad">Grad</h5>
+<p>Sei <span class="math inline">p=\sum_{i=0}^{n}{a_iT^{i}}</span> ein
+Polynom in <span class="math inline">\mathbb{K}[T]</span>, und sei <span
+class="math inline">p</span> nicht das Nullpolynom. Dann gibt es einen
+Koeffizienten <span class="math inline">a_i</span>, der nicht <span
+class="math inline">0</span> ist. Sei <span class="math inline">m</span>
+der groesste Index, so dass der Koeffizient <span
+class="math inline">a_m\neq 0</span> ist. Wir nennen <span
+class="math inline">m</span> den <em>Grad</em> von <span
+class="math inline">p</span> und schreiben <span
+class="math inline">\text{Grad}(p)=m</span>. Nullpolynom: <span
+class="math inline">\text{Grad(0)}=-\infty</span></p>
+<hr />
+<h3 id="produkt">Produkt</h3>
+<h5 id="definition-1">Definition</h5>
+<p>Seien <span class="math inline">p=\sum_{i=0}^{n}{a_iT^{i} }</span>
+und <span class="math inline">q=\sum_{i=0}^{m}{b_iT^{i} }</span>
+Polynome in <span class="math inline">\mathbb{K}[T]</span>. Wir
+definieren das <em>Produkt</em> <span class="math inline">pq</span>
+durch <span class="math display">
+  pq=\sum_{k}c_kT^{k} \text{ mit } c_k=\sum_{i+j=k}{a_ib_j}
+</span></p>
+<h5 id="gradformel">Gradformel</h5>
+<p>Seien <span class="math inline">p=\sum_{i=0}^{n}{a_iT^{i} }</span>
+und <span class="math inline">q=\sum_{i=0}^{m}{b_iT^{i} }</span>
+Polynome in <span class="math inline">\mathbb{K}[T]</span> mit <span
+class="math inline">\text{Grad}(p)=n\ge 0</span> und <span
+class="math inline">\text{Grad}(q)=m\ge 0</span>. Dann gilt <span
+class="math inline">\text{Grad}(pq)=n+m</span></p>
+<hr />
+<h3 id="nullstellen">Nullstellen</h3>
+<hr />
+<h3 id="polynomfunktionen"><a
+href="polynomfunktionen.html">Polynomfunktionen</a></h3>
+<hr />
+<hr />
+<p><strong>Backlinks:</strong> - <a
+href="/polynomfunktionen.html">Polynomfunktionen</a></p>
+<script>
+renderMathInElement(
+    document.body,
+    {
+        delimiters: [
+            {left: "$$", right: "$$", display: true},
+            {left: "\\[", right: "\\]", display: true},
+            {left: "$", right: "$", display: false},
+            {left: "\\(", right: "\\)", display: false},
+            {left: "\\begin{equation}", right: "\\end{equation}", display: true},
+            {left: "\\begin{align}", right: "\\end{align}", display: true},
+            {left: "\\begin{alignat}", right: "\\end{alignat}", display: true},
+            {left: "\\begin{gather}", right: "\\end{gather}", display: true},
+            {left: "\\begin{CD}", right: "\\end{CD}", display: true},
+        ]
+    }
+);
+</script>
+</body>
+</html>
