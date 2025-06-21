@@ -19,5 +19,6 @@ tags: Index
 - [Kongruenzen](kongruenzen)
 - [Restklassen](restklassen)
 - [Pythagoreisches_Tripel](pythagoreisches_tripel)
+- [Teileranzahlfunktion](teileranzahlfunktion)
  
 ---
