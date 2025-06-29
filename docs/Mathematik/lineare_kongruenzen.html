@@ -49,10 +49,18 @@
 </header>
 <hr />
 <h3 id="definition">Definition</h3>
-<p>Eine <em>lineare Kongruenz</em> ist ein Ausdruck <span
+<p><strong>Lineare Kongruenz</strong><br />
+Eine <em>lineare Kongruenz</em> ist ein Ausdruck <span
 class="math inline">aX\equiv b \pmod{m}</span>, wobei <span
 class="math inline">a,b\in \mathbb{Z}</span> und <span
 class="math inline">m\in \mathbb{N},m&gt;1</span>, sind.</p>
+<p><strong><a
+href="loesung_linearer_kongruenzen.html">Loesung_Linearer_Kongruenzen</a></strong><br />
+Sei <span class="math inline">aX\equiv b \pmod{m}</span> eine lineare
+Kongruenz. Eine <em>Loesung</em> von <span class="math inline">aX\equiv
+b \pmod{m}</span> ist ein <span class="math inline">x_{0}\in
+\mathbb{Z}_{m}</span> mit <span class="math inline">ax_{0}\equiv b
+\pmod{m}</span>.</p>
 <hr />
 <h3 id="proposition-1">Proposition 1</h3>
 <h5 id="sei-axequiv-b-pmodm-eine-lineare-kongruenz.-dann-gilt">Sei <span
@@ -66,6 +74,32 @@ class="math inline">a(x\text{ mod {m}})\equiv b \pmod{m}</span></li>
 <span class="math inline">x\in \mathbb{Z}</span>, so folgt <span
 class="math inline">a(x+km)\equiv b \pmod{m}</span> fuer alle <span
 class="math inline">k\in \mathbb{Z}</span></li>
+</ol>
+<p><strong>Beweis:</strong></p>
+<ol type="1">
+<li><p>Sei <span class="math inline">ax\equiv b \pmod{m}</span>. Sei
+<span class="math inline">x_{0}=x \text{ mod }m</span><br />
+Mit <a href="restklassen">Korollar1</a> gilt <span
+class="math inline">x\equiv x_{0}\pmod{m}</span>. Mit <a
+href="lineare_kongruenzen.html">Rechenregel</a> 5 folgt <span
+class="math display">
+ax\equiv ax_{0}\pmod{m}
+</span> Mit Rechenregel 2 folgt <span class="math display">
+ax_{0}\equiv ax \pmod{m}
+</span> Wir haben damit <span class="math display">
+ax_{0}\equiv ax\pmod{m} \text{ und } ax\equiv b \pmod{m}
+</span> Mit Rechenregel 3 folgt <span class="math inline">ax_{0}\equiv b
+\pmod{m}</span></p></li>
+<li><p>Sei <span class="math inline">ax\equiv b \pmod{m}</span>. Dann
+gilt <span class="math inline">m\mid ax-b</span>. Sei <span
+class="math inline">k\in \mathbb{Z}</span>. Dann gilt <span
+class="math display">
+a(x+km)-b=ax+akm-b=(ax-b)+akm
+</span> Da <span class="math inline">m</span> ein Teiler von <span
+class="math inline">ax-b</span> und <span class="math inline">akm</span>
+ist, ist <span class="math inline">m</span> ein Teiler von <span
+class="math inline">a(x+km)-b</span>. Somit gilt die Behauptung fuer
+alle <span class="math inline">k\in \mathbb{Z}</span></p></li>
 </ol>
 <hr />
 <hr />

@@ -9,8 +9,10 @@ tags: Index
  
 ### Index
 
+- [Euklidischer_Algorithmus](euklidischer_algorithmus)
 - [Primzahlen](primzahlen)   
 - [Primzahldrillinge](primzahldrillinge)
+- [Primabstand](primabstand)
 - [Zusammengesetzte_Zahlen](zusammengesetzte_zahlen)
 - [Primteilerexistenz](primteilerexistenz)
 - [Satz_des_Euklid](satz_des_euklid)
@@ -18,6 +20,9 @@ tags: Index
 - [Mersenne'sche Primzahlen](mersennesche_primzahlen)
 - [Kongruenzen](kongruenzen)
 - [Restklassen](restklassen)
+- [Lineare Kongruenzen](lineare_kongruenzen)
+- [Loesung_Linearer_Kongruenzen](loesung_linearer_kongruenzen)
+- [Chinesischer_Restsatz](chinesischer_restsatz)
 - [Pythagoreisches_Tripel](pythagoreisches_tripel)
 - [Teileranzahlfunktion](teileranzahlfunktion)
  

@@ -19,6 +19,11 @@ Seien $a,b\in \mathbb{Z}$, und sei $m\in \mathbb{N}$, $m>1$. Dann gilt:
 1. $(a+b)\text{ mod } m=((a\text{ mod } m)+(b \text{ mod } m)) \text{ mod } m$
 2. $(a\cdot b) \text{ mod } m =((a \text{ mod } m)\cdot (b \text{ mod } m)) \text{ mod } m$
 
+---
+
+### Korollar 1
+**Sei $a\in \mathbb{Z}$, und sei $m\in \mathbb{N}$, $m>1$. Es ist $a\equiv a \text{ mod m}\pmod{m}$**, und $a\text{ mod }m$ ist die einzige Zahl in $\{0,\ldots ,m-1\}$, die kongruent zu $a \text{ mod }m$ ist
+
 
 
 

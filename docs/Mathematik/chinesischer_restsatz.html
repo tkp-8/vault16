@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>Restklassen</title>
+  <title>Chinesischer_Restsatz</title>
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
@@ -43,42 +43,31 @@
 </head>
 <body>
 <header id="title-block-header">
-<h1 class="title">Restklassen</h1>
-<p class="date">2025-05-26 08:55</p>
+<h1 class="title">Chinesischer_Restsatz</h1>
+<p class="date">2025-06-29 08:10</p>
 <div class="tags">Tags: </div>
 </header>
 <hr />
 <h3 id="definition">Definition</h3>
-<h5 id="vollstaendiges-restklassensystem">vollstaendiges
-Restklassensystem</h5>
-<p>Sei <span class="math inline">m\in \mathbb{N}, m&gt;1</span>. Die
-Menge <span class="math inline">\{0,1,\ldots ,m-1\}</span> wird als
-<em>vollstaendiges Restklassensystem</em> modulo <span
-class="math inline">m</span> genannt und mit <span
-class="math inline">\mathbb{Z}_m</span> bezeichnet.<br />
-Ist <span class="math inline">a\in \mathbb{Z}</span>, so wird <span
-class="math inline">a \text{ mod }{m}</span> der <strong>kleinste
-Rest</strong> von <span class="math inline">a</span>
-<strong>modulo</strong> <span class="math inline">m</span> genannt.</p>
+<p><strong>Paarweise Teilerfremd</strong><br />
+Seien <span class="math inline">m_{1},\ldots ,m_r \in \mathbb{Z}</span>.
+Wir nennen <span class="math inline">m_{1},\ldots ,m_r</span>
+<em>paarweise Teilerfremd</em>, wenn <span
+class="math inline">\text{ggT}(m_i,m_j)=1</span> fuer alle <span
+class="math inline">1\le i,j\le r</span> und <span
+class="math inline">i\neq j</span> gilt.</p>
 <hr />
-<h3 id="rechenregeln-fuer-kleinste-reste">Rechenregeln fuer kleinste
-Reste</h3>
-<p>Seien <span class="math inline">a,b\in \mathbb{Z}</span>, und sei
-<span class="math inline">m\in \mathbb{N}</span>, <span
-class="math inline">m&gt;1</span>. Dann gilt: 1. <span
-class="math inline">(a+b)\text{ mod } m=((a\text{ mod } m)+(b \text{ mod
-} m)) \text{ mod } m</span> 2. <span class="math inline">(a\cdot b)
-\text{ mod } m =((a \text{ mod } m)\cdot (b \text{ mod } m)) \text{ mod
-} m</span></p>
-<hr />
-<h3 id="korollar-1">Korollar 1</h3>
-<p><strong>Sei <span class="math inline">a\in \mathbb{Z}</span>, und sei
-<span class="math inline">m\in \mathbb{N}</span>, <span
-class="math inline">m&gt;1</span>. Es ist <span
-class="math inline">a\equiv a \text{ mod m}\pmod{m}</span></strong>, und
-<span class="math inline">a\text{ mod }m</span> ist die einzige Zahl in
-<span class="math inline">\{0,\ldots ,m-1\}</span>, die kongruent zu
-<span class="math inline">a \text{ mod }m</span> ist</p>
+<h3 id="lemma-1">Lemma 1</h3>
+<p><strong>Seien <span class="math inline">m_{1},\ldots ,m_r</span>
+paarweise Teilerfremde ganze Zahlen. Sei <span
+class="math inline">M=m_{1}\cdots m_r</span>. Fuer alle <span
+class="math inline">1\le i\le r</span> sei <span
+class="math inline">M_i=\frac{M}{m_i}=m_{1}\cdots m_{i-1}\cdot
+m_{i+1}\cdots m_r</span>.</strong><br />
+<strong>Dann gilt <span
+class="math inline">\text{ggT}(M_i,m_i)=1</span></strong></p>
+<p><strong>Beweis</strong><br />
+</p>
 <hr />
 <hr />
 <p><strong>Backlinks:</strong> - <a
