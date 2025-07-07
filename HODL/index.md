@@ -10,7 +10,7 @@ tags: Index
     - [🗃️Analysis](Mathematik/🗃️Analysis)
     - [🗃️Arithmetik](Mathematik/🗃️Arithmetik)
     - [🗃️Lineare Algebra](Mathematik/🗃️Lineare_Algebra)
-     
+    
 
 - [🗄️Informatik](Informatik/index)
     - [🗃️Technische Informatik](Informatik/🗃️Technische_Informatik)
@@ -24,6 +24,8 @@ tags: Index
  
 
 - [🗄️Sonstiges](Sonstiges/index)
+    - [🗃️Kreativitaet](Sonstiges/🗃️Kreativitaet)
+    - [🗃️Anti-Aging](Sonstiges/🗃️Anti-Aging)
 
 
 

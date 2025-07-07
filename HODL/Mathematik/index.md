@@ -11,13 +11,12 @@ tags: Index
 
 ---
 - [🗃️Analysis](🗃️Analysis)
-   
   - [📁Analysis Grundlagen](📁Analysis_Grundlagen) 
+
 
 - [🗃️Lineare Algebra](🗃️Lineare_Algebra)
 
 
 - [🗃️Arithmetik](🗃️Arithmetik)
- 
   - [📁Elementare Zahlentheorie](📁Elementare_Zahlentheorie)
        

@@ -19,7 +19,15 @@ Befehle im Speicher ablegen und durch [Leitwerk](leitwerk) holen lassen
 ---
 
 ### Funktionsweise
+- Ueber Steueralgorithmen realisierten Operationen w. ueber [Opcodes](opcode) ausgewaehlt
+- 
 
+---
+
+### Bestandteile
+- [Rechenwerk](rechenwerk)
+- [Leitwerk](leitwerk)
+- 
 
 
 

@@ -11,12 +11,11 @@ tags: Index
 ### Index
 
 - [🗃️Trading](🗃️Trading)
-     
     - [📁Technical Analysis](📁Technical_Analysis) 
     - [📁Fundamental Analysis](📁Fundamental_Analysis)
 
-- [🗃️Quants](🗃️Quants)
 
+- [🗃️Quants](🗃️Quants)
     - [📁Quants101](📁Quants101)
 
 
