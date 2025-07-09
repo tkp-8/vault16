@@ -6,7 +6,10 @@ tags:
 
 ----
 
-### 
+### Definition 
+- *ALU* (Arithmetic Logic Unit)
+- El. Bestandteil, d. zwei Registerinhalte *logisch* o. *artithmetisch* miteinander verknuepft
+- Bestandteil d. [Rechenwerks](rechenwerk) 
 
 
 

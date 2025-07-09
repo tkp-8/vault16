@@ -7,7 +7,10 @@ tags:
 ----
 
 ### Defintiion 
-Numerischer *Code* e. Maschinenbefehls, m. d. d. CPU gesteuert w.
+*Operationscode\
+Numerischer *Code* e. [Maschinenbefehls](maschinenbefehl), m. d. d. CPU gesteuert w.
+
+---
 
 ### Mnemonics 
 Opcodes w. i. Assemblersprach-Quellcode durch *Mnemonics* dargestellt

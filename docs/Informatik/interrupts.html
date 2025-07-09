@@ -30,7 +30,59 @@
 <div class="tags">Tags: </div>
 </header>
 <hr />
-<h3 id="section"></h3>
+<h3 id="definition">Definition</h3>
+<p>Signal a.d. <a href="prozessor.html">Prozessor</a>, d. ihn
+auffordert, seine akt. Taetigkeit <strong>kurz zu unterbrechen</strong>
+<strong>Interrupt Service Routine, ISR:</strong> Als Reaktion a.e.
+Interrupt verzweigt d. Prozessor z.e. Programmteil, d.a.d. eingetretene
+Ereignis reagiert</p>
+<hr />
+<h3 id="unterschied-zu-unterprogrammen">Unterschied zu <a
+href="unterprogramme.html">Unterprogrammen</a></h3>
+<p><strong>Unterprogramme:</strong> CALL-Befehl Ausloeser<br />
+<strong>Interrupts:</strong> Intern o. extern erzeugte (Hardware)Signale
+Ausloeser</p>
+<hr />
+<h3 id="anwendungen">Anwendungen</h3>
+<h5 id="ein-ausgabe"><a href="io.html">Ein-/Ausgabe</a></h5>
+<ul>
+<li>Moeglichkeit: Busy-Waiting (Staendige Abfrage d. Zustands
+d. I/O)</li>
+<li>Wesentlich guenstiger: *Interrupt**-gesteuerte I/O
+<ul>
+<li><a href="prozessor.html">Prozessor</a> w. nur dann unterbrochen,
+w.d. I/O-Baustein bereit i., Daten zu senden o. zu empfangen</li>
+</ul></li>
+</ul>
+<h5 id="betriebssystem">Betriebssystem</h5>
+<ul>
+<li>I. Multitasking-Systemen schaltet d. Prozessor staendig zw. versch.
+Benutzern (bzw. Prozessen) um</li>
+<li>Nach Ablauf e. <strong>Zeitscheibe</strong> w. Zuteilung d. CPU
+durch e. <em>Interrupt</em> aufgerufen</li>
+</ul>
+<h5 id="software-interrupts">Software-Interrupts</h5>
+<ul>
+<li>Def: <a href="maschinenbefehl.html">Maschinenbefehl</a>, d.d.
+gleiche Wirkung h. wie durch Hardware ausgeloeste
+<em>Interrupts</em></li>
+</ul>
+<h5 id="traps-und-exceptions">Traps und Exceptions</h5>
+<ul>
+<li><strong>Fehler</strong> w. durch e. geeignete Hardware erkannt, d.e.
+besonderen Interrupt ausloest</li>
+<li>Bsp:
+<ul>
+<li>Divide by Zero</li>
+<li>Illegal Instruction</li>
+<li>Speicherdefekt</li>
+</ul></li>
+</ul>
+<hr />
+<h3 id="verarbeitung-eines-interrupts">Verarbeitung eines
+Interrupts</h3>
+<p><a href="einzelner_interrupt.html">Einzelner_Interrupt</a> <a
+href="mehrere_interrupts.html">Mehrere_Interrupts</a></p>
 <hr />
 <hr />
 <p><strong>Backlinks:</strong> - <a

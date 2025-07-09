@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>Opcode</title>
+  <title>Stapel</title>
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
@@ -25,31 +25,42 @@
 </head>
 <body>
 <header id="title-block-header">
-<h1 class="title">Opcode</h1>
-<p class="date">2025-07-07 10:07</p>
+<h1 class="title">Stapel</h1>
+<p class="date">2025-07-08 11:04</p>
 <div class="tags">Tags: </div>
 </header>
 <hr />
-<h3 id="defintiion">Defintiion</h3>
-<p><em>Operationscode<br />
-Numerischer </em>Code* e. <a
-href="maschinenbefehl.html">Maschinenbefehls</a>, m. d. d. CPU gesteuert
-w.</p>
+<h3 id="definition">Definition</h3>
+<p>(Engl: Stack)<br />
+<strong>Datenstruktur</strong>, b.d.d. Prinzip LIFO gilt<br />
+D. zuletzt abgelegte Elem. w. als. erstes wieder entnommen</p>
 <hr />
-<h3 id="mnemonics">Mnemonics</h3>
-<p>Opcodes w. i. Assemblersprach-Quellcode durch <em>Mnemonics</em>
-dargestellt</p>
+<h3 id="realisierungssmoeglichkeiten">Realisierungssmoeglichkeiten</h3>
+<ol type="1">
+<li>Direkt i. Hardware a.d. Prozessorchip
 <ul>
-<li><code>MOV:</code> Daten zwischen Registern o. Speicher bew.</li>
-<li><code>ADD:</code> Addition zweier Werte</li>
-<li><code>JMP:</code> Unbedingter Sprung</li>
-<li><code>NOP:</code> No operation</li>
-<li><code>HLT:</code> Prozess anhalten</li>
-</ul>
+<li>Schneller</li>
+<li>Mehr Chipflaeche w. erfordert</li>
+</ul></li>
+<li>M. Hilfe e. <a href="stapelzeiger.html">Stapelzeigers</a>
+<ul>
+<li>Speichergroesse d. Stapels laesst s. durch zusaetzlichen
+Hauptspeicher beliebig vergroessern</li>
+</ul></li>
+</ol>
+<hr />
+<h3 id="prinzip">Prinzip</h3>
+<h5 id="lifo-last-in-first-out">LIFO (Last In, First OUT)</h5>
+<p>Operationen: - PUSH - Maschinenwort a.d. Stapel legen - POP -
+Maschinenwort zurueckholen</p>
+<hr />
+<h3 id="stapel-ueberlauf">Stapel-Ueberlauf</h3>
+<p>D. Stapel darf niemals so gross w., dass er d. Daten o.
+Programmbereich ueberschreibt</p>
 <hr />
 <hr />
 <p><strong>Backlinks:</strong> - <a
-href="/computer.html">Computer</a></p>
+href="/stapelzeiger.html">Stapelzeiger</a></p>
 <script>
 renderMathInElement(
     document.body,

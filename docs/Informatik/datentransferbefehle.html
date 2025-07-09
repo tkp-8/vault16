@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>Opcode</title>
+  <title>Datentransferbefehle</title>
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
@@ -25,31 +25,41 @@
 </head>
 <body>
 <header id="title-block-header">
-<h1 class="title">Opcode</h1>
-<p class="date">2025-07-07 10:07</p>
+<h1 class="title">Datentransferbefehle</h1>
+<p class="date">2025-07-08 00:00</p>
 <div class="tags">Tags: </div>
 </header>
 <hr />
-<h3 id="defintiion">Defintiion</h3>
-<p><em>Operationscode<br />
-Numerischer </em>Code* e. <a
-href="maschinenbefehl.html">Maschinenbefehls</a>, m. d. d. CPU gesteuert
-w.</p>
+<h3 id="definition">Definition</h3>
+<p>E. d. <em>Befehlsklassen</em> d. <a
+href="leitwerk.html">Leitwerks</a><br />
+Dient z. Transfer v. Daten zwischen <a href="speicher">Speicher</a> u.
+<a href="prozessor.html">Prozessor</a></p>
 <hr />
-<h3 id="mnemonics">Mnemonics</h3>
-<p>Opcodes w. i. Assemblersprach-Quellcode durch <em>Mnemonics</em>
-dargestellt</p>
+<h3 id="funktionen">Funktionen</h3>
+<ol type="1">
+<li>Lesen (load)
 <ul>
-<li><code>MOV:</code> Daten zwischen Registern o. Speicher bew.</li>
-<li><code>ADD:</code> Addition zweier Werte</li>
-<li><code>JMP:</code> Unbedingter Sprung</li>
-<li><code>NOP:</code> No operation</li>
-<li><code>HLT:</code> Prozess anhalten</li>
-</ul>
+<li>Bestimmung d. <strong>Speicheradresse</strong>
+d. Quelloperanden</li>
+<li><strong>Lesezugriff</strong> a. d. Speicher (Speicheradresse
+ausgeben)</li>
+<li><strong>Speichern</strong> d. gelesenen Datums i.
+d. Zielregister</li>
+</ul></li>
+<li>Schreiben (store)
+<ul>
+<li>Bestimmung d. <strong>Speicheradresse</strong> d. Zieloperanden</li>
+<li>Gleichzeitig k. d. Inhalt d. <strong>Quellregisters</strong>
+ausgelesen w.</li>
+<li><strong>Schreibzugriff</strong> auf den Speicher (Speicheradresse u.
+Datum ausgeben u. Datum speichern)</li>
+</ul></li>
+</ol>
 <hr />
 <hr />
 <p><strong>Backlinks:</strong> - <a
-href="/computer.html">Computer</a></p>
+href="/leitwerk.html">Leitwerk</a></p>
 <script>
 renderMathInElement(
     document.body,

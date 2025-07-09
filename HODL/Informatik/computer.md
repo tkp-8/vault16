@@ -9,7 +9,7 @@ tags:
 ### Definition 
 - Krogrammierbare Maschine, die durch gespeicherten Meschinenbefehle gesteuert wird
 - Computer entsteht aus einer Erweiterung eines [komplexen Schaltwerks](komplexes_schaltwerk) durch Hinzufuegen mehrerer
-  Steueralgorithmen (Befehle) und Registerblock fuer Operanden
+  Steueralgorithmen (Befehle) und [Prozessorregister](prozessorregister) fuer Operanden
 
 ---
 
@@ -20,14 +20,23 @@ Befehle im Speicher ablegen und durch [Leitwerk](leitwerk) holen lassen
 
 ### Funktionsweise
 - Ueber Steueralgorithmen realisierten Operationen w. ueber [Opcodes](opcode) ausgewaehlt
-- 
+- Befehle w. im [Speicher](speicher) abgelegt u. vom [Leitwerk](leitwerk) geholt
+- **Befehle:** [Opcode](opcode) & Operandenadressen
+
 
 ---
 
 ### Bestandteile
-- [Rechenwerk](rechenwerk)
-- [Leitwerk](leitwerk)
-- 
+- [Prozessor](prozessor)
+  - [Rechenwerk](rechenwerk)
+  - [Leitwerk](leitwerk)
+- [Speicher](speicher) 
+- [Ein-/Ausgabe](io)
+
+---
+
+### Blockschaltbild eines Computers
+![](img/computer_1.png){width=300px}
 
 
 

@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>Opcode</title>
+  <title>Maschinenbefehl</title>
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
@@ -25,31 +25,37 @@
 </head>
 <body>
 <header id="title-block-header">
-<h1 class="title">Opcode</h1>
-<p class="date">2025-07-07 10:07</p>
+<h1 class="title">Maschinenbefehl</h1>
+<p class="date">2025-07-08 04:12</p>
 <div class="tags">Tags: </div>
 </header>
 <hr />
-<h3 id="defintiion">Defintiion</h3>
-<p><em>Operationscode<br />
-Numerischer </em>Code* e. <a
-href="maschinenbefehl.html">Maschinenbefehls</a>, m. d. d. CPU gesteuert
-w.</p>
+<h3 id="definition">Definition</h3>
+<p>Codierte <strong>Anweisung</strong> a.d. <a
+href="prozessor.html">CPU</a>, e. spezifische <strong>Operation</strong>
+auszufueren<br />
+Besteht a. <em><a href="opcode.html">Opcode</a></em> u.
+<em>Adressfeld</em></p>
 <hr />
-<h3 id="mnemonics">Mnemonics</h3>
-<p>Opcodes w. i. Assemblersprach-Quellcode durch <em>Mnemonics</em>
-dargestellt</p>
+<h3 id="befehlsformate">Befehlsformate</h3>
+<h5 id="ein-wort-befehle">Ein-Wort-Befehle</h5>
 <ul>
-<li><code>MOV:</code> Daten zwischen Registern o. Speicher bew.</li>
-<li><code>ADD:</code> Addition zweier Werte</li>
-<li><code>JMP:</code> Unbedingter Sprung</li>
-<li><code>NOP:</code> No operation</li>
-<li><code>HLT:</code> Prozess anhalten</li>
+<li>Wenn d. Operanden i. Rechenwerkregistern stehen</li>
+<li><a href="cisc">CISC</a> u. <a href="risc.html">RISC</a></li>
+<li>(Opcode, Adressfeld)</li>
+</ul>
+<h5 id="mehr-wort-befehle">Mehr-Wort-Befehle</h5>
+<ul>
+<li>Wenn d. Operanden o. Daten direkt i. <a
+href="speicher.html">Speicher</a> abgelegt sind</li>
+<li>Befehl a. zwei o. derei Maschinenwoertern</li>
+<li>Ausschliesslich bei <a href="cisc.html">CISC</a></li>
+<li>Bsp. Format: (Opcode, Adresse 1. Op, Adresse 2. Op, Adresse
+Ergebnis)</li>
 </ul>
 <hr />
 <hr />
-<p><strong>Backlinks:</strong> - <a
-href="/computer.html">Computer</a></p>
+<p><strong>Backlinks:</strong> - <a href="/opcode.html">Opcode</a></p>
 <script>
 renderMathInElement(
     document.body,

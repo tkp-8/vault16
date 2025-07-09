@@ -30,7 +30,31 @@
 <div class="tags">Tags: </div>
 </header>
 <hr />
-<h3 id="section"></h3>
+<h3 id="definition">Definition</h3>
+<p>(Engl: Stack Pointer, <strong>SP</strong>) Besonderes <a
+href="prozessorregister.html">Prozessorregister</a>, d.z. Indizierung v.
+Speicherzugriffen dient, um i. <a href="speicher">Speicher</a> e. <a
+href="stapel.html">Stapel</a> z. impl.<br />
+Wichtiges Hilfsmittel, d.d. Verarbeitung v. <a
+href="unterprogramme">Unterprogrammen</a> u. <a
+href="interrupts.html">Interrupts</a> ermoeglicht</p>
+<hr />
+<h3 id="funktion">Funktion</h3>
+<ul>
+<li>Stapelzeiger w. als Adresse f.d. Zugriff a.d. Hauptspeicher
+verwendet</li>
+<li>LIFO-Prinzip w. erfuellt</li>
+<li>Beginnt a. Ende des Hauptspeichers u. waechst i. Richtung z.d.
+niedrigen Adressen</li>
+</ul>
+<hr />
+<h3
+id="implementierungsmoeglichkeiten">Implementierungsmoeglichkeiten</h3>
+<p>Veraendern d. Stapelzeigers: 1. B.d. <strong>PUSH-Operation</strong>
+v.d. Schreiben i.d. Speicher u.b.d. <strong>POP-Operation</strong> n.d
+Lesen d. Speichers 2. B.d. <strong>PUSH-Operation</strong> n.d.
+Schreiben i.d. Speicher u.b.d. <strong>POP-Operation</strong> v.d Lesen
+d. Speichers</p>
 <hr />
 <hr />
 <p><strong>Backlinks:</strong> - <a
