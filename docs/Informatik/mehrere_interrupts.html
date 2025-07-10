@@ -22,6 +22,24 @@
     }
   </style>
   <link rel="stylesheet" href="style.css" />
+  <script defer=""
+  src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <link rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css" />
 </head>
 <body>
 <header id="title-block-header">
@@ -30,7 +48,158 @@
 <div class="tags">Tags: </div>
 </header>
 <hr />
-<h3 id="section"></h3>
+<h3 id="grundfunktion">Grundfunktion</h3>
+<p><a href="einzelner_interrupt.html">Einzelner_Interrupt</a></p>
+<hr />
+<h3 id="probleme">Probleme</h3>
+<ol type="1">
+<li>Jedem <a href="interrupts.html">Interrupt</a> muss e. eig.
+Startadresse f.d. Service-Routine zugeordnet w.</li>
+<li>Wenn mehrere Interrupts gleichzeitig <em>haengend</em> s., muss e.
+Entscheidung getroffen w., welcher Interrupt vorrangig bearbeitet
+w.</li>
+</ol>
+<hr />
+<h3 id="maskierbarkeit">Maskierbarkeit</h3>
+<ol type="1">
+<li>Maskierbare Interrupts
+<ul>
+<li>Koennen v. Programmierer <strong>freigegeben</strong> o.
+<strong>gesperrt</strong> w.</li>
+<li>Sperren, w. Anwendung zeitkritisch</li>
+</ul></li>
+<li>Nicht-maskierbare Interrupts (Non Maskable Interrupts,
+<strong>NMI</strong>)
+<ul>
+<li>Koennen <strong>nicht gesperrt</strong> w.<br />
+</li>
+<li>Fehlerbehandlung u. muessen unverzueglich bearbeitet w.</li>
+<li>Bsp: Abfall d. Betriebsspannung, Traps</li>
+</ul></li>
+</ol>
+<hr />
+<h3 id="methoden-zur-bestimmung-startadresse">Methoden zur Bestimmung
+Startadresse</h3>
+<p>Um d. Startadresse d. Service-Routine zu bestimmen, gibt es drei
+Moeglichkeiten:</p>
+<h5 id="abfragemethode-polling">Abfragemethode (Polling)</h5>
+<p>Vorteil:</p>
+<ul>
+<li>Geringster Hardwareaufwand</li>
+<li>Am <a href="prozessor.html">Prozessor</a> nur e. Interrupt-Eingang
+noetig</li>
+</ul>
+<p>Nachteil:</p>
+<ul>
+<li>Hoher <strong>Zeitbedarf</strong> z. Abfrage d. einzelden
+I/O-Bausteinen</li>
+</ul>
+<p>Ablauf:</p>
+<ol type="1">
+<li>IRQ d. einzelnen I/O-Bausteine w. durch e.
+<strong>OR-Funktion</strong> verknuepft, d. diesen einzelnen Eingang IRQ
+steuert</li>
+<li>Eingang IRQ, d. alle Interrupts verwaltet: <strong>Interrupt
+Handler</strong></li>
+<li>Wenn e. haengende IRQ erkannt w., w.d. laufende Programm
+unterbrochen, indem d. CPU d. Service-Routine (Interrupt Handler)
+aufruft</li>
+<li>Ermittlung d. Interrupt-Quelle
+<ul>
+<li>Lesen d. <a href="statusregister.html">Statusregister</a>
+d. einzelnen I/O-Bausteine u. Pruefen, ob
+<strong>Interrupt-Flag</strong> gesetzt</li>
+<li>Interrupt Handler <strong>kennt</strong> d. Startadressen
+d. Service-Routinen f. jeden einzelnen Baustein</li>
+<li>Flag positiv -&gt; <strong>unbedingter Sprung</strong> zu
+d. zugeordneten Service-Routine</li>
+<li><strong>Prioritaet</strong> bestimmt Reihenfolge d. Abfrage</li>
+</ul></li>
+<li>Abschliessen d. <em>Device Handler-Programm</em> m.d.
+<strong>RETI</strong>-Befehl</li>
+</ol>
+<h5 id="vektormethode-vectored-interrupts">Vektormethode (vectored
+Interrupts)</h5>
+<p>Vorteil:</p>
+<ul>
+<li><strong>Schnelle</strong> Beantwortung v.
+Interrunpt-Anforderungen</li>
+<li><strong>Startadresse</strong> d. Device Handlers spaetestens n.e.
+Befehlszyklus bekannt</li>
+</ul>
+<p>Nachteil:</p>
+<ul>
+<li>Groesster Hardwareaufwand</li>
+<li>F. jede moegliche Interrupt-Anforderung e. eigener Eingaenge an CPU
+noetig</li>
+<li>Nur ein Device Handler pro Anforderungsleitung</li>
+</ul>
+<p>Ablauf:</p>
+<ol type="1">
+<li>Interrupt-Anforderungen w.i.e. besonderen Register
+<strong>ISRQ</strong> (Interrupt Service REQuest) aufgefangen</li>
+<li>Sie w.m.e. <strong>Interrupt-Maske</strong> <em>IM</em>,
+d. Bestandteil d. Statusregisters ist, bitweise
+<strong>AND</strong>-verknuepft</li>
+<li>Freigegebener Interrupt w. erkannt -&gt; Ablaufsteuerung der
+betreffenden Anforderungsleitung k.e. Maschinenbefehl zuordnen</li>
+<li>Maschinenbefehl legt implizit d. Startadresse f.e. Service-Routine
+fest</li>
+</ol>
+<h5 id="codemethode">Codemethode</h5>
+<p>Vorteil:</p>
+<ul>
+<li>Hohes Mass an <strong>Flexibilitaet</strong></li>
+</ul>
+<p>Ablauf:</p>
+<ol type="1">
+<li>Jeder Anforderungsleitung <span class="math inline">IRQ_i</span>
+w.e. Quittungssignal <span class="math inline">INTA_i</span>
+zugeordnet</li>
+<li>I/O-Baustein enthael auf e. Interrupt-Anforderung hin e.
+Quittungssignal -&gt; antwortet m.e. <strong>Codewort</strong> aud d. <a
+href="busse.html">Datenbus</a></li>
+<li>Aus d. Codewort w.d. Startadresse d. gewuenschten Device Handlers
+bestimmt</li>
+</ol>
+<hr />
+<h3
+id="interrupt-controller-festlegung-prioritaeten">Interrupt-Controller
+(Festlegung Prioritaeten)</h3>
+<p>A.d. Chip integriete Hardware-Loesung, um
+<strong>Prioritaeten</strong> festzulegen</p>
+<h5 id="interrupt-tabelle">Interrupt-Tabelle</h5>
+<p>Tabelle, i.d.d Startadressen abgelegt sind <img
+src="img/interrupt_2" /></p>
+<h5 id="aufbau">Aufbau</h5>
+<p><img src="img/interrupt_3" /></p>
+<h5 id="ablauf">Ablauf</h5>
+<ol type="1">
+<li>Wenn alle Interrupts freigegeben (IM=1111) -&gt; haengende
+Anforderungen i. ISQR gelangen z.e. <em>Prioritaetsencoder</em></li>
+<li>Nummer d. Anforderung **hoechster Prioritaetw.v. Prioritaetsencoder
+als Dualzahl ausgegebe</li>
+<li>Code w.m.d. <strong>Interrupt-Status-bits</strong> <em>IS</em>
+d. Statusregisters verglichen (IS gibt
+d. <strong>Prioritaetsebene</strong> an, i.d.s.d. Prozessor gerade
+befindet)</li>
+<li>Falls Prioritaetscode <span class="math inline">A &gt; IS</span>
+-&gt; Anforderung m.d. hoechsten Prioritaet w. akzeptiert u. bearbeitet:
+<ol type="1">
+<li>M. Hilfe d. Prioritaets-Codes w.d. Startadresse d. Service-Routine
+n.e.d. o.g. <strong>Methoden</strong> bestimmt u.d. passende <span
+class="math inline">INTA_i</span>-Signal w. ausgegeben</li>
+<li><strong>Ruecksprungadresse</strong> w. zsm. m.d. alten IS-Code
+(Statusregister) a.d. <strong>Stapel</strong> gelegt</li>
+<li>Startadresse d. Service-Routine w.i.d. <a
+href="befehlszaehler.html">Befehlszaehler</a> geladen -&gt; IS-Teil
+d. Statusregisters w.m.d. <strong>akt. Prioritaetscode</strong>
+ueberschrieben</li>
+<li>Abarbeitung d. <strong>Service-Routine</strong> -&gt; Abschliessen
+m.e. RETI-Befehl (stellt d. alte Statusregister wiederher, bewikt e.
+Rueckkehr i.d. unterbrochene Prioritaetsebene)</li>
+</ol></li>
+</ol>
 <hr />
 <hr />
 <p><strong>Backlinks:</strong> - <a

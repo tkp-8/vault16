@@ -6,7 +6,10 @@ tags:
 
 ----
 
-### 
+### Definition 
+[Prozessorregister](prozessorregister) d. [Rechenwerks](rechenwerk), d. Informationen
+ueber d. akt. **Zustand d. [Prozessors](prozessor)** o.d. **Ergebnis** d. letzten Rechenoperationen speichert\
+D. einzelnen Bits innerhalb w. als [Status-Flags](status-flags) bezeichnet
 
 
 

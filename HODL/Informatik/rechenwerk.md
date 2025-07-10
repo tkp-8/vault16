@@ -27,7 +27,11 @@ tags:
 - [ALU](alu)
 - [Statusregister](statusregister)
 - [Schiebemultiplexer](schiebemultiplexer)
-- Registerblock
+- [Datenzugriffsarchitektur](datenzugriffsarchitektur)
+- [Datenpfade](datenpfade)
+
+---
+
 
 
 

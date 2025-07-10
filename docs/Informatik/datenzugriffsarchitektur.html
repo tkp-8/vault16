@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Datenzugriffsarchitektur</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">Datenzugriffsarchitektur</h1>
+<p class="date">2025-07-10 00:29</p>
+<div class="tags">Tags: </div>
+</header>
+<hr />
+<h3 id="definition">Definition</h3>
+<p>Teil d. <a href="rechenwerk">Rechenwerks</a> e. <a
+href="prozessor.html">Prozessors</a> u. beschreibt, aus welchen Quellen
+d. <strong>Operanden</strong> f. arithmetisch-logische Operationen
+stammen u. wohin d. <strong>Ergebnisse</strong> geschrieben w.</p>
+<hr />
+<h3 id="x-adressen-maschinen">X-Adressen-Maschinen</h3>
+<p>Form der <em>Datenzugriffsarchitektur</em>, b.d. <a
+href="maschinenbefehl.html">Maschinenbefehle</a> <strong>X Speicher- o.
+Registeradressen enthalten</strong></p>
+<hr />
+<h3 id="registerarchitektur">Registerarchitektur</h3>
+<p>M. spricht v.e. <em>Registerarchitektur</em>, wenn i. Rechenwerk
+adressierbare <strong>Datenregister</strong> vorhanden s. -
+Datenregister bilden <strong>Register-Block/Register-File</strong> -
+Ein-/Zwei-/Drei-Adresse-Maschinen &lt;- bestimmt v.d. Zahl
+d. <strong>internen Daten- u. Adressbusse</strong>, d.d. Registerblock
+m.d. <a href="alu">ALU</a> u.d. <a href="speicher.html">Speicher</a>
+verbinden - Zahl d. Adressen, d.i.e. Befehl angegeben koennen, gibt
+keine Auskunft ueber d. <strong>Hardware-Implementierung</strong> -&gt;
+man sollte v.e. <strong>X-Adress-Befehlssatz</strong> sprechen</p>
+<hr />
+<h3 id="stapelarchitektur">Stapelarchitektur</h3>
+<p>Anstelle e. Register-Files w. hier e. <a
+href="stapel.html">Stapel</a> benutzt, um Operanden o. Ergebnisse zu
+speichern - A.d. Prozessor <strong>integrierter</strong> LIFO-Speicher -
+<strong>Null-Adress-Befehe</strong> benutzen Daten, d. oben a.d. Stapel
+liegen, als Operanden o. als Adressen (fuer Hauptspeicher) - Ergebnix
+-&gt; <strong>Top of Stack</strong> (TOS) - Berechnung e. arithmetischen
+Ausdrucks i.d. <strong>umgekehrten Polnischen Notation</strong> (Reverse
+Posish Notation, RPN)</p>
+<hr />
+<hr />
+<p><strong>Backlinks:</strong> - <a
+href="/rechenwerk.html">Rechenwerk</a></p>
+<script>
+renderMathInElement(
+    document.body,
+    {
+        delimiters: [
+            {left: "$$", right: "$$", display: true},
+            {left: "\\[", right: "\\]", display: true},
+            {left: "$", right: "$", display: false},
+            {left: "\\(", right: "\\)", display: false},
+            {left: "\\begin{equation}", right: "\\end{equation}", display: true},
+            {left: "\\begin{align}", right: "\\end{align}", display: true},
+            {left: "\\begin{alignat}", right: "\\end{alignat}", display: true},
+            {left: "\\begin{gather}", right: "\\end{gather}", display: true},
+            {left: "\\begin{CD}", right: "\\end{CD}", display: true},
+        ]
+    }
+);
+</script>
+</body>
+</html>

@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>Schiebemultiplexer</title>
+  <title>Datenpfade</title>
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
@@ -25,47 +25,45 @@
 </head>
 <body>
 <header id="title-block-header">
-<h1 class="title">Schiebemultiplexer</h1>
-<p class="date">2025-07-07 11:25</p>
+<h1 class="title">Datenpfade</h1>
+<p class="date">2025-07-10 01:06</p>
 <div class="tags">Tags: </div>
 </header>
 <hr />
 <h3 id="definition">Definition</h3>
-<p>(Engl: Shifter)<br />
-Eine <strong>logische Schaltung</strong>, die:</p>
-<ul>
-<li>aus <strong>mehreren Datenquellen</strong> eine auswaehlt</li>
-<li>zusaetzlich erlaubt, d. ausgewaehlten Daten <strong>bitweise zu
-verschieben</strong></li>
-</ul>
+<p>Eine Sammlung aus <a href="rechenwerk">Rechenwerken</a> (z.B <a
+href="alu">ALU</a>, <a
+href="schiebemultiplexer.html">Schiebemultiplexer</a>),
+d. Datenverarbeitungsoperationen, <a
+href="prozessorregister">Register</a> u. <a href="busse.html">Busse</a>
+ausfuehren</p>
 <hr />
-<h3 id="einsatzbereich">Einsatzbereich</h3>
+<h3 id="datenpfadstrukturen">Datenpfadstrukturen</h3>
+<h5 id="rechenwerk-einer-ein-adress-maschine">Rechenwerk einer <a
+href="datenzugriffsarchitektur.html">Ein-Adress-Maschine</a></h5>
+<p><img src="img/datenpfade_1.png" /> - ALU u. Registerfeld m.
+<strong>einem</strong> internen (bidirektionalen) Datenbus verbunden</p>
+<p>Nachteil: Abarbeitung e. <a
+href="maschinenbefehl.html">Maschinenbefehls</a> erfordert <strong>drei
+Taktzueklen</strong>: 1. Erster Operand i. Hilfsregister 2. Zweiter
+Operand i. Hilfsregister 3. Ergebnis d. Verknuepfung v.
+F(unction)-Ausgang d. ALU ins Register File</p>
+<h5 id="rechenwerk-einer-zwei-adress-maschine">Rechenwerk einer
+Zwei-Adress-Maschine</h5>
 <ul>
-<li>In <a href="alu">ALU</a> o. <a
-href="rechenwerk.html">Rechenwerken</a></li>
-<li>Vereinfacht <strong>Multiplikation u. Division</strong></li>
+<li>Erfordert nur zwei Taktzyklen f.d. selben Befehl, da Register A u. B
+gleichzeitig geladen w.k.</li>
 </ul>
-<hr />
-<h3 id="aufbau">Aufbau</h3>
-<p><img src="img/schiebemultiplexer_1.png" /> - E. Eingang i.m.d.
-internen <a href="busse.html">Datenbus</a> verbunden - Bei d. anderen
-Eingaengen: Datenleitungen einerseits um e. Stelle nach
-<strong>links</strong> verschoben, andererseits um e. Stelle nach
-<strong>rechts</strong> - Zwei Steuerleitungen: waehlt gewuenschte
-Positionierung e. ALU-Operanden aus - Bit w. entweder v. links o. rechts
-nachgeschoben (Eingaenge <strong>Left Input</strong>, LI, <strong>Right
-Input</strong>, RI) - Herausfallendes Bit steht je nach Schieberichtung
-an den Ausgaengen (<strong>Left Output</strong>, LO, <strong>Right
-Output</strong>, RO) - Oft <strong>Carry Flag</strong>, um entweder
-d. Herausfallende Bit zwischenzuspeichern o.d. Inhalt d. Carry Flags
-nachzuschieben</p>
-<p>Rotation: - Wenn d. Schiebe-Eingaenge m.d. zugehoerigen Ausgaengen
-<strong>verbunden</strong> w., <em>rotieren</em> d. Bits um e.
-Stelle</p>
+<h5 id="rechenwerk-einer-drei-adress-maschine">Rechenwerk einer
+Drei-Adress-Maschine</h5>
+<p><img src="img/datenpfade_2.png" /> - Typisch fuer <a
+href="risc.html">RISC-Prozessoren</a> - Ein Taktzyklus f.d. selben
+Befehl, da f.d. Operanden u.f.d. Ergebnis eigene Datenbusse bereitstehen
+- <strong>Register-ALU</strong> (RALU)</p>
 <hr />
 <hr />
 <p><strong>Backlinks:</strong> - <a
-href="/📁Rechnerarchitektur.html">📂Rechnerarchitektur</a></p>
+href="/rechenwerk.html">Rechenwerk</a></p>
 <script>
 renderMathInElement(
     document.body,

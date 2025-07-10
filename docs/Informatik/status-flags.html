@@ -22,6 +22,24 @@
     }
   </style>
   <link rel="stylesheet" href="style.css" />
+  <script defer=""
+  src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <link rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css" />
 </head>
 <body>
 <header id="title-block-header">
@@ -30,7 +48,33 @@
 <div class="tags">Tags: </div>
 </header>
 <hr />
-<h3 id="section"></h3>
+<h3 id="definition">Definition</h3>
+<p>Einzelne <strong>Bits</strong> innerhalb d. <a
+href="statusregister.html">Statusregisters</a>, d. bestimmte
+Eigenschaften d. letzten <strong>Rechenergebnisses</strong> anzeigen</p>
+<hr />
+<h3 id="bestimmung-von-status-flags">Bestimmung von Status-Flags</h3>
+<p>Ausgaenge <span class="math inline">f_{N-1},\ldots ,f_{0}</span>
+bilden d. <strong>Ergebnisbus</strong> d. <a href="alu">ALU</a> (vgl. <a
+href="datenpfade.html">Datenpfade</a>)<br />
+Belegung <strong>dieser Bits</strong> u.d. Belegung
+d. <strong>Uebertrags</strong> <span class="math inline">c_N</span>
+bilden d. Status-Flags</p>
+<ol type="1">
+<li><em>Carry <span class="math inline">C</span></em>: Uebertrag i.d.
+hoechsten Stelle, <span class="math inline">C=c_N</span></li>
+<li><em>Zero <span class="math inline">Z</span></em>: alle Bits v. <span
+class="math inline">F</span> sind Null, <span
+class="math inline">Z=\overline{f_{N-1}\lor f_{N-2}\lor \ldots \lor
+f_{0}}</span></li>
+<li><em>Minus <span class="math inline">M</span></em>: negatives
+Vorzeichen bei <a href="alu.html">Zweierkomplement</a>-Darstellung,
+<span class="math inline">M=f_{N-1}</span></li>
+<li><em>Overflow (bzw. Underflow) <span
+class="math inline">V</span></em>: d. Ergebnis i. zu gross (klein), um
+mit <span class="math inline">N</span>-Bit-Wortbreite dargestellt zu w.,
+<span class="math inline">V=c_N\oplus c_{N-1}</span></li>
+</ol>
 <hr />
 <hr />
 <p><strong>Backlinks:</strong> - <a

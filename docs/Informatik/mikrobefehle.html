@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>Mikroprogrammierung</title>
+  <title>Mikrobefehle</title>
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
@@ -25,50 +25,60 @@
 </head>
 <body>
 <header id="title-block-header">
-<h1 class="title">Mikroprogrammierung</h1>
-<p class="date">2025-07-07 11:26</p>
+<h1 class="title">Mikrobefehle</h1>
+<p class="date">2025-07-10 07:16</p>
 <div class="tags">Tags: </div>
 </header>
 <hr />
 <h3 id="definition">Definition</h3>
-<p>Eine Architekturmoeglichkeit des <a
-href="leitwerk.html">Leitwerks</a><br />
-Technik zur <strong>Steuerrung der <a href="prozessor">CPU</a></strong>
-ueber <strong>vordefinierte <a
-href="mikrobefehle.html">Mikrobefehl</a>-Sequenzen</strong><br />
-Jeder <a href="maschinenbefehl.html">Maschinenbefehl</a> w. durch e.
-zugehoeriges <em>Mikroprogramm</em> realisiert</p>
+<p>(Auch: Steuerwoerter)<br />
+Interne Steueranweisung <strong>innerhalb</strong> d. <a
+href="prozessor">Prozessors</a>, d.e. Teil e. <a
+href="maschinenbefehl.html">Maschinenbefehls</a> realisiert<br />
+Steuert <strong>direkt</strong> einzelne funktionale Einheiten, wie
+Registertransfer, <a href="alu.html">ALU</a>-Operationen o.
+Buszugriffe</p>
 <hr />
 <h3 id="eigenschaften">Eigenschaften</h3>
 <ul>
-<li>Mikroprogramme bestehen aus Mikrobefehlen</li>
-<li>Gespeichert i.e. speziellen <a href="speicher.html">Speicher</a>:
+<li><strong>Nicht sichtbar</strong> fuer Programmierer</li>
+<li>Organisiert i. <a
+href="mikroprogrammierung.html">Mikroprogramme</a></li>
+<li>Realisierung durch <a href="leitwerk.html">Leitwerk</a>
 <ul>
-<li><strong>Mikroprogrammspeicher</strong> (oft ROM o. PLA)</li>
+<li>entweder fest verdraht</li>
+<li>oder mikroprogrammiert</li>
 </ul></li>
-<li><strong>Ersetzt</strong> fest verdrahtete Steuerlogik (Alternative
-zu hardwired control)</li>
-<li>Wesentlich langsamer als Hardware-Loesung</li>
 </ul>
 <hr />
-<h3 id="aufbau-mikroprogramm-steuerwerk">Aufbau Mikroprogramm-<a
-href="leitwerk.html">Steuerwerk</a></h3>
-<p><img src="img/mikroprogrammierung_1.png" /> D. Befehlssatz e.
-Prozessors u.d. Faehigkeiten d. Rechenwerks w. durch Mikroprogramme
-miteinander verknuepft - Zu jedem <a
-href="maschinenbefehl.html">Makrobefehl</a> gibt es e. Bereich im
-Steuerwort-Speicher, d.d. zugehoerigen Mikrobefehle enthaelt &lt;-
-<strong>Mikroprogramm</strong> - <strong>Befehlssatz</strong>: Menge
-saemtlicher Mikroprogramme - Meistens fester Befehlssatz -
-<strong>Mikroprogramm-Steuerwerk</strong>: Hardware-Interpreter fuer
-d. Maschinenbefehlssatz - <strong>Mikroassembler</strong>: Symbolische
-<strong>Sprache</strong>, um Mikroprogramme zu entwickeln - <a
-href="opcode.html">Opcode</a> w.i. Befehlsregister abgelegt u. durch e.
-Schaltnetz i.d. <strong>Startadresse</strong> d. zugehoerigen
-Mikroprogramms umgeformt - Steuerwort-Speicher w. ueber
-d. <strong>Control Memory Address Register</strong> (CMAR) adressiert
-(wie e. <a href="befehlszaehler.html">Programmzaehler</a> fuer
-Makroprogramme)</p>
+<h3 id="befehlsformat">Befehlsformat</h3>
+<p>Mikrobefehle enthalten nicht nur Steuerbits, sondern auch Information
+zur <strong>Adresserzeugung</strong> f.d. Mikrobefehlszaehler<br />
+Zwei Teile e. Mikrobefehls:</p>
+<ol type="1">
+<li>Steuerwort zur Auswahl d. Operationen i. Rechenwerk</li>
+<li>Adressauswahlwort, um d. Adresse d. naechsten Mikrobefehls
+festzulegen</li>
+</ol>
+<ul>
+<li>Mikrobefehle sind codiert, da e. geringer Prozentsatz d. moeglichen
+Steuerwoerter sinnvoll</li>
+<li>Steuerwort w.i. mehrere voneinander unabhaengige Felder
+unterteilt</li>
+<li>Jedes Feld codiert e. Mikrooperation</li>
+</ul>
+<p><strong>Klassifikation</strong><br />
+Horizontale Mikrobefehle:</p>
+<ul>
+<li>Viele Steuer-Bits</li>
+<li>Hohe Zahl paralleler Mikrrooperationen</li>
+</ul>
+<p>Vertikale Mikrobefehle:</p>
+<ul>
+<li>Nur ein Steuerfeld</li>
+<li>Hoher Dekodierungsaufwand</li>
+<li>Eine einzige Mikrooperaition pro Taktzyklus</li>
+</ul>
 <hr />
 <hr />
 <p><strong>Backlinks:</strong> - <a

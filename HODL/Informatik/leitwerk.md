@@ -20,6 +20,12 @@ tags:
 
 ---
 
+### Bestandteile
+- [Befehlszaehler](befehlszaehler)
+- [Befehlsregister](befehlsregister)
+
+---
+
 ### Befehlsarten
 1. [Verknuepfungsbefehle](verknuepfungsbefehle)
 2. [Datentransferbefehle](datentransferbefehle)

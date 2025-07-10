@@ -7,6 +7,7 @@ tags:
 ----
 
 ### Definition
+(Auch: Makrobefehl)\
 Codierte **Anweisung** a.d. [CPU](prozessor), e. spezifische **Operation** auszufueren\
 Besteht a. *[Opcode](opcode)* u. *Adressfeld*
 
@@ -23,6 +24,18 @@ Besteht a. *[Opcode](opcode)* u. *Adressfeld*
 - Befehl a. zwei o. derei Maschinenwoertern
 - Ausschliesslich bei [CISC](cisc)
 - Bsp. Format: (Opcode, Adresse 1. Op, Adresse 2. Op, Adresse Ergebnis)
+
+---
+
+### Beziehung zu [Mikrobefehlen](mikrobefehle)
+- E. Maschinenbefehl -> umgesetzt durch **mehrere Mikrobefehle**
+- Mikrobefehle steuern
+  - Registertransfer
+  - [ALU](alu)-Operationen
+  - Buszugriffe
+- Umsetzung erfolgt durch [Leitwerk](leitwerk) d. CPU
+  - entweder **fest verdraht** 
+  - oder [mikroprogrammiert](mikroprogrammierung)
 
 
 
